@@ -1,0 +1,1 @@
+pocet_souboru = "tri"

@@ -1,0 +1,55 @@
+1
+00:00:00,400 --> 00:00:06,589
+Poslední video lekce: jak Terraform provozovat v týmu bezpečně a bez aplikování z notebooku.
+
+2
+00:00:07,900 --> 00:00:12,632
+Na pull request běží kontroly a plán, který se ukáže reviewerovi.
+
+3
+00:00:12,632 --> 00:00:17,072
+Po merge se plán vytvoří znovu, uloží se a čeká na schválení.
+
+4
+00:00:17,072 --> 00:00:20,348
+Aplikuje se přesně uložený plán z téhož běhu.
+
+5
+00:00:21,648 --> 00:00:24,061
+Token pipeline má jen nutná práva.
+
+6
+00:00:24,061 --> 00:00:29,313
+Do cloudu se přihlásí přes OIDC krátkodobým tokenem, bez statických klíčů.
+
+7
+00:00:29,313 --> 00:00:33,713
+Concurrency zajistí, že nad stavem nepoběží dva běhy najednou.
+
+8
+00:00:33,713 --> 00:00:38,184
+A environment s povinnými schvalovateli je brána před produkcí.
+
+9
+00:00:39,483 --> 00:00:45,357
+Při review plánu se ptejte: odpovídá řádek Plan tomu, co pull request slibuje?
+
+10
+00:00:45,357 --> 00:00:48,369
+Je každé nahrazení a smazání vysvětlené?
+
+11
+00:00:48,369 --> 00:00:52,135
+Nemění se nečekaně oprávnění, sítě nebo šifrování?
+
+12
+00:00:52,135 --> 00:00:54,846
+A jsou nové verze providerů záměrné?
+
+13
+00:00:56,183 --> 00:01:03,769
+A poslední otázka: proč v pipeline aplikujeme uložený plán, a ne nový apply s automatickým potvrzením?
+
+14
+00:01:03,769 --> 00:01:05,925
+Odpověď si ověřte v labu osm.

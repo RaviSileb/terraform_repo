@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="font-variant-ligatures:none" viewBox="0 0 1200 500" width="1200" height="500" font-family="Inter, 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+<title>Mapa kurzu: 11 modulů ve dvou dnech, každý s podcastem, videem a labem</title>
+<rect width="1200" height="500" rx="18" fill="#0F172A"/>
+<text x="40" y="58" font-size="30" font-weight="800" fill="#FFFFFF">Terraform: od nuly k produkci</text>
+<text x="40" y="88" font-size="16" fill="#CBD5E1">11 modulů · 8 labů + závěrečný projekt · 10 úloh v Opravárně · podcast · video lekce · autograder</text>
+<text x="40" y="150" font-size="14" font-weight="700" fill="#A78BFA">DEN 1 – ZÁKLADY</text>
+<text x="40" y="320" font-size="14" font-weight="700" fill="#34D399">DEN 2 – TÝM A PRODUKCE</text>
+<path d="M70,230 L1130,230" stroke="#7B42BC" stroke-width="8" stroke-linecap="round"/>
+<path d="M70,400 L1130,400" stroke="#10B981" stroke-width="8" stroke-linecap="round"/>
+<circle cx="95" cy="230" r="22" fill="#0F172A" stroke="#A78BFA" stroke-width="6"/>
+<text x="95" y="236" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">00</text>
+<text x="95" y="194" text-anchor="middle" font-size="15" font-weight="700" fill="#F8FAFC">Příprava</text>
+<text x="95" y="276" text-anchor="middle" font-size="12" fill="#CBD5E1">prostředí</text>
+<circle cx="297" cy="230" r="22" fill="#0F172A" stroke="#A78BFA" stroke-width="6"/>
+<text x="297" y="236" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">01</text>
+<text x="297" y="194" text-anchor="middle" font-size="15" font-weight="700" fill="#F8FAFC">Proč IaC</text>
+<text x="297" y="276" text-anchor="middle" font-size="12" fill="#CBD5E1">Terraform vs. svět</text>
+<circle cx="499" cy="230" r="22" fill="#0F172A" stroke="#A78BFA" stroke-width="6"/>
+<text x="499" y="236" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">02</text>
+<text x="499" y="194" text-anchor="middle" font-size="15" font-weight="700" fill="#F8FAFC">HCL</text>
+<text x="499" y="276" text-anchor="middle" font-size="12" fill="#CBD5E1">a workflow</text>
+<rect x="463" y="286" width="72" height="20" rx="10" fill="#A78BFA"/>
+<text x="499" y="300" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">lab01</text>
+<circle cx="701" cy="230" r="22" fill="#0F172A" stroke="#A78BFA" stroke-width="6"/>
+<text x="701" y="236" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">03</text>
+<text x="701" y="194" text-anchor="middle" font-size="15" font-weight="700" fill="#F8FAFC">Proměnné</text>
+<text x="701" y="276" text-anchor="middle" font-size="12" fill="#CBD5E1">a výstupy</text>
+<rect x="665" y="286" width="72" height="20" rx="10" fill="#A78BFA"/>
+<text x="701" y="300" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">lab02</text>
+<circle cx="903" cy="230" r="22" fill="#0F172A" stroke="#A78BFA" stroke-width="6"/>
+<text x="903" y="236" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">04</text>
+<text x="903" y="194" text-anchor="middle" font-size="15" font-weight="700" fill="#F8FAFC">Providery</text>
+<text x="903" y="276" text-anchor="middle" font-size="12" fill="#CBD5E1">a závislosti</text>
+<rect x="867" y="286" width="72" height="20" rx="10" fill="#A78BFA"/>
+<text x="903" y="300" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">lab03</text>
+<circle cx="1105" cy="230" r="22" fill="#0F172A" stroke="#A78BFA" stroke-width="6"/>
+<text x="1105" y="236" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">05</text>
+<text x="1105" y="194" text-anchor="middle" font-size="15" font-weight="700" fill="#F8FAFC">State</text>
+<text x="1105" y="276" text-anchor="middle" font-size="12" fill="#CBD5E1">drift, import</text>
+<rect x="1069" y="286" width="72" height="20" rx="10" fill="#A78BFA"/>
+<text x="1105" y="300" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">lab04</text>
+<circle cx="95" cy="400" r="22" fill="#0F172A" stroke="#34D399" stroke-width="6"/>
+<text x="95" y="406" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">06</text>
+<text x="95" y="364" text-anchor="middle" font-size="15" font-weight="700" fill="#F8FAFC">Meta-argumenty</text>
+<text x="95" y="446" text-anchor="middle" font-size="12" fill="#CBD5E1">count, for_each</text>
+<rect x="59" y="456" width="72" height="20" rx="10" fill="#34D399"/>
+<text x="95" y="470" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">lab05</text>
+<circle cx="347" cy="400" r="22" fill="#0F172A" stroke="#34D399" stroke-width="6"/>
+<text x="347" y="406" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">07</text>
+<text x="347" y="364" text-anchor="middle" font-size="15" font-weight="700" fill="#F8FAFC">Moduly</text>
+<text x="347" y="446" text-anchor="middle" font-size="12" fill="#CBD5E1">znovupoužití</text>
+<rect x="311" y="456" width="72" height="20" rx="10" fill="#34D399"/>
+<text x="347" y="470" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">lab06</text>
+<circle cx="599" cy="400" r="22" fill="#0F172A" stroke="#34D399" stroke-width="6"/>
+<text x="599" y="406" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">08</text>
+<text x="599" y="364" text-anchor="middle" font-size="15" font-weight="700" fill="#F8FAFC">Testování</text>
+<text x="599" y="446" text-anchor="middle" font-size="12" fill="#CBD5E1">a kvalita</text>
+<rect x="563" y="456" width="72" height="20" rx="10" fill="#34D399"/>
+<text x="599" y="470" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">lab07</text>
+<circle cx="851" cy="400" r="22" fill="#0F172A" stroke="#34D399" stroke-width="6"/>
+<text x="851" y="406" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">09</text>
+<text x="851" y="364" text-anchor="middle" font-size="15" font-weight="700" fill="#F8FAFC">Týmy</text>
+<text x="851" y="446" text-anchor="middle" font-size="12" fill="#CBD5E1">a CI/CD</text>
+<rect x="815" y="456" width="72" height="20" rx="10" fill="#34D399"/>
+<text x="851" y="470" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">lab08</text>
+<circle cx="1103" cy="400" r="22" fill="#0F172A" stroke="#34D399" stroke-width="6"/>
+<text x="1103" y="406" text-anchor="middle" font-size="15" font-weight="800" fill="#FFFFFF">10</text>
+<text x="1103" y="364" text-anchor="middle" font-size="15" font-weight="700" fill="#F8FAFC">Závěrečný</text>
+<text x="1103" y="446" text-anchor="middle" font-size="12" fill="#CBD5E1">projekt</text>
+<rect x="1067" y="456" width="72" height="20" rx="10" fill="#34D399"/>
+<text x="1103" y="470" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">capstone</text>
+</svg>

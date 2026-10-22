@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="font-variant-ligatures:none" viewBox="0 0 960 540" width="960" height="540" font-family="Inter, 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+  <title>Imperativní skript popisuje kroky, deklarativní kód popisuje cílový stav</title>
+  <defs><marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+  <rect width="960" height="540" rx="18" fill="#F8FAFC"/>
+  <text x="40" y="56" font-size="28" font-weight="700" fill="#0F172A">Imperativně vs. deklarativně</text>
+  <text x="40" y="84" font-size="16" fill="#475569">Skript říká JAK. Terraform říká CO – a cestu si spočítá sám.</text>
+  <rect x="40" y="110" width="420" height="300" rx="14" fill="#1E293B"/>
+  <text x="60" y="140" font-size="15" font-weight="700" fill="#FBBF24">deploy.sh (imperativní)</text>
+  <g font-size="13" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace" fill="#E2E8F0" xml:space="preserve" style="white-space:pre">
+    <text x="60" y="172">if ! docker network inspect app; then</text>
+    <text x="60" y="194">  docker network create app</text>
+    <text x="60" y="216">fi</text>
+    <text x="60" y="238">for i in 1 2 3; do</text>
+    <text x="60" y="260">  if ! docker inspect web-$i; then</text>
+    <text x="60" y="282">    docker run -d --name web-$i \</text>
+    <text x="60" y="304">      --network app nginx:1.30-alpine</text>
+    <text x="60" y="326">  fi</text>
+    <text x="60" y="348">done</text>
+    <text x="60" y="378" fill="#F87171"># a co když chci jen 2? Nebo jiný image?</text>
+  </g>
+  <rect x="500" y="110" width="420" height="300" rx="14" fill="#1E293B"/>
+  <text x="520" y="140" font-size="15" font-weight="700" fill="#C4B5FD">main.tf (deklarativní)</text>
+  <g font-size="13" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace" fill="#E2E8F0" xml:space="preserve" style="white-space:pre">
+    <text x="520" y="172">resource "docker_network" "app" {</text>
+    <text x="520" y="194">  name = "app"</text>
+    <text x="520" y="216">}</text>
+    <text x="520" y="248">resource "docker_container" "web" {</text>
+    <text x="520" y="270">  count = 3</text>
+    <text x="520" y="292">  name  = "web-${count.index}"</text>
+    <text x="520" y="314">  image = docker_image.nginx.image_id</text>
+    <text x="520" y="336">  networks_advanced { name = "app" }</text>
+    <text x="520" y="358">}</text>
+    <text x="520" y="388" fill="#86EFAC"># chci 2? count = 2 → plan: 1 to destroy</text>
+  </g>
+  <g font-size="15" fill="#334155">
+    <rect x="40" y="430" width="880" height="80" rx="12" fill="#EEF2FF"/>
+    <text x="60" y="462" fill="#312E81"><tspan font-weight="700">Deklarativní přístup dává:</tspan> idempotenci (opakované spuštění nic nerozbije), náhled změn (plan),</text>
+    <text x="60" y="488" fill="#312E81">detekci driftu, graf závislostí a paralelismus, review v Gitu a jeden zdroj pravdy.</text>
+  </g>
+</svg>

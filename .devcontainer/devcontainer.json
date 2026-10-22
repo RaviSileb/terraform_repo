@@ -1,0 +1,28 @@
+{
+  "name": "Terraform školení",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/terraform:1": {
+      "version": "latest",
+      "tflint": "latest",
+      "terragrunt": "none",
+      "installTerraformDocs": true
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/python:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hashicorp.terraform",
+        "github.vscode-github-actions",
+        "bierner.markdown-mermaid"
+      ]
+    }
+  },
+  "forwardPorts": [8080, 8061, 8062, 8100, 8200],
+  "postCreateCommand": "bash skoleni/nastroje/overeni-prostredi.sh",
+  "hostRequirements": {
+    "cpus": 2
+  }
+}

@@ -1,0 +1,75 @@
+1
+00:00:00,400 --> 00:00:04,552
+Stav je nejdůležitější a nejcitlivější část Terraformu.
+
+2
+00:00:04,552 --> 00:00:06,288
+Pojďme se podívat proč.
+
+3
+00:00:07,600 --> 00:00:09,107
+Kód říká, co chcete.
+
+4
+00:00:09,107 --> 00:00:11,820
+Stav říká, co si Terraform pamatuje.
+
+5
+00:00:11,820 --> 00:00:14,157
+Realita je to, co opravdu běží.
+
+6
+00:00:14,157 --> 00:00:17,925
+Plán porovnává kód se stavem, refresh čte realitu.
+
+7
+00:00:17,925 --> 00:00:21,392
+Když někdo realitu změní ručně, vznikne drift.
+
+8
+00:00:21,392 --> 00:00:26,064
+Ten můžete opravit, přijmout do kódu, nebo mu příště zabránit.
+
+9
+00:00:27,400 --> 00:00:30,447
+V týmu patří stav do vzdáleného úložiště.
+
+10
+00:00:30,447 --> 00:00:34,981
+To musí umět zamykání, aby dva lidé nepřepsali stav souběžně.
+
+11
+00:00:34,981 --> 00:00:41,299
+Dále verzování, abyste se mohli vrátit, a šifrování, protože ve stavu jsou tajemství.
+
+12
+00:00:41,299 --> 00:00:45,015
+A dělejte malé stavy, jeden na prostředí a oblast.
+
+13
+00:00:46,315 --> 00:00:50,033
+Tři bloky, které nahrazují ruční zásahy do stavu.
+
+14
+00:00:50,033 --> 00:00:52,613
+Import převezme existující objekt.
+
+15
+00:00:52,613 --> 00:00:55,268
+Moved přejmenuje zdroj bez zničení.
+
+16
+00:00:55,268 --> 00:00:58,607
+Removed ukončí správu, ale objekt nechá žít.
+
+17
+00:00:58,607 --> 00:01:01,946
+Všechny projdou review a uvidíte je v plánu.
+
+18
+00:01:03,245 --> 00:01:08,816
+Zastavte video: co se stane při dalším apply, když blok resource z kódu jen smažete?
+
+19
+00:01:08,816 --> 00:01:12,198
+A jak tomu zabráníte, pokud objekt chcete zachovat?

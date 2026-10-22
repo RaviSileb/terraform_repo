@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="font-variant-ligatures:none" viewBox="0 0 960 540" width="960" height="540" font-family="Inter, 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+  <title>Cyklus PRIMM: Predict, Run, Investigate, Modify, Make</title>
+  <defs><marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+  <rect width="960" height="540" rx="18" fill="#F8FAFC"/>
+  <text x="40" y="56" font-size="28" font-weight="700" fill="#0F172A">Jak probíhá každý lab: PRIMM</text>
+  <text x="40" y="84" font-size="16" fill="#475569">Od čtení cizího kódu k psaní vlastního. Předpověď před spuštěním je klíčová.</text>
+  <g font-size="14" text-anchor="middle">
+    <circle cx="180" cy="300" r="86" fill="#7C3AED"/><text x="180" y="290" fill="#FFF" font-size="22" font-weight="700">Predict</text><text x="180" y="316" fill="#EDE9FE">předpovězte plán</text>
+    <circle cx="340" cy="190" r="70" fill="#2563EB"/><text x="340" y="184" fill="#FFF" font-size="20" font-weight="700">Run</text><text x="340" y="208" fill="#DBEAFE">spusťte</text>
+    <circle cx="520" cy="190" r="70" fill="#0891B2"/><text x="520" y="184" fill="#FFF" font-size="20" font-weight="700">Investigate</text><text x="520" y="208" fill="#CFFAFE">zkoumejte stav</text>
+    <circle cx="664" cy="300" r="78" fill="#059669"/><text x="664" y="294" fill="#FFF" font-size="20" font-weight="700">Modify</text><text x="664" y="318" fill="#D1FAE5">upravte kód</text>
+    <circle cx="430" cy="410" r="78" fill="#65A30D"/><text x="430" y="404" fill="#FFF" font-size="20" font-weight="700">Make</text><text x="430" y="428" fill="#ECFCCB">napište vlastní</text>
+  </g>
+  <g stroke="#475569" stroke-width="2.5" fill="none">
+    <path d="M245,245 L275,222" marker-end="url(#s)"/>
+    <path d="M410,190 L446,190" marker-end="url(#s)"/>
+    <path d="M580,228 L606,246" marker-end="url(#s)"/>
+    <path d="M598,346 L506,392" marker-end="url(#s)"/>
+    <path d="M354,398 L252,350" marker-end="url(#s)" stroke-dasharray="6 5"/>
+  </g>
+  <g font-size="13" fill="#334155">
+    <rect x="766" y="130" width="178" height="300" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="780" y="158" font-weight="700">Proč to funguje</text>
+    <text x="780" y="184">Predict nutí</text>
+    <text x="780" y="202">vybavit si znalost</text>
+    <text x="780" y="220">(retrieval practice).</text>
+    <text x="780" y="250">Rozpor předpovědi</text>
+    <text x="780" y="268">a výsledku upoutá</text>
+    <text x="780" y="286">pozornost.</text>
+    <text x="780" y="316">Modify/Make postupně</text>
+    <text x="780" y="334">ubírá oporu</text>
+    <text x="780" y="352">(fading).</text>
+    <text x="780" y="384" fill="#64748B">Sentance a kol.,</text>
+    <text x="780" y="402" fill="#64748B">2019</text>
+  </g>
+</svg>

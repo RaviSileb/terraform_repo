@@ -1,0 +1,71 @@
+1
+00:00:00,400 --> 00:00:05,799
+Tato lekce je o proměnných, validacích a o nejčastějším omylu kolem citlivých dat.
+
+2
+00:00:07,100 --> 00:00:09,353
+Představte si modul jako funkci.
+
+3
+00:00:09,353 --> 00:00:16,887
+Proměnné jsou parametry, lokální hodnoty pomocné proměnné uvnitř funkce a výstupy jsou to, co funkce vrací.
+
+4
+00:00:16,887 --> 00:00:20,407
+Díky tomu jeden kód poslouží pro vývoj i produkci.
+
+5
+00:00:21,707 --> 00:00:24,501
+Typ zachytí špatný vstup hned na začátku.
+
+6
+00:00:24,501 --> 00:00:26,681
+Validace přidá vlastní pravidlo.
+
+7
+00:00:26,681 --> 00:00:34,313
+Od verze jedna devět může odkazovat i na jinou proměnnou, takže umíte vynutit, že produkce má aspoň dvě repliky.
+
+8
+00:00:34,313 --> 00:00:37,174
+Je to nejlevnější místo, kde chybu chytit.
+
+9
+00:00:38,507 --> 00:00:41,214
+Hodnoty se skládají v tomto pořadí.
+
+10
+00:00:41,214 --> 00:00:50,573
+Výchozí hodnota, proměnná prostředí, soubor terraform tfvars, soubory auto tfvars a nakonec přepínače na příkazové řádce.
+
+11
+00:00:50,573 --> 00:00:52,662
+Co přijde později, vyhrává.
+
+12
+00:00:54,007 --> 00:00:55,046
+A teď ten omyl.
+
+13
+00:00:55,046 --> 00:00:57,886
+Sensitive pouze skryje hodnotu ve výpisu.
+
+14
+00:00:57,886 --> 00:01:00,240
+Ve stavu zůstává v čitelné podobě.
+
+15
+00:01:00,240 --> 00:01:06,889
+Od verze jedna deset můžete proměnnou označit jako ephemeral, pak se do stavu ani plánu neuloží.
+
+16
+00:01:06,889 --> 00:01:13,469
+A write only argumenty od verze jedna jedenáct předají heslo providerovi, který si ho nezapíše.
+
+17
+00:01:14,807 --> 00:01:19,625
+Zastavte video: kde všude může skončit heslo předané běžným argumentem?
+
+18
+00:01:19,625 --> 00:01:22,610
+V labu dvě si odpověď ověříte příkazem grep.

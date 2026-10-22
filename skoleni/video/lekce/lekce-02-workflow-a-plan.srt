@@ -1,0 +1,75 @@
+1
+00:00:00,400 --> 00:00:07,657
+V této lekci projdeme každodenní workflow Terraformu a naučíme se číst plán tak, jak ho čtou zkušení inženýři.
+
+2
+00:00:09,000 --> 00:00:13,612
+Blok má typ, tady resource, pak typ zdroje a vaše lokální jméno.
+
+3
+00:00:13,612 --> 00:00:15,197
+Uvnitř jsou argumenty.
+
+4
+00:00:15,197 --> 00:00:21,395
+Reference random pet jméno id vytváří závislost: jméno musí vzniknout dřív než soubor.
+
+5
+00:00:21,395 --> 00:00:26,151
+Pořadí bloků v souboru přitom nehraje žádnou roli, rozhoduje graf.
+
+6
+00:00:27,500 --> 00:00:31,044
+Init stáhne providery a moduly a připraví backend.
+
+7
+00:00:31,044 --> 00:00:35,014
+Plán přečte realitu, porovná ji s kódem a vypíše rozdíl.
+
+8
+00:00:35,014 --> 00:00:37,637
+Apply plán provede a uloží nový stav.
+
+9
+00:00:37,637 --> 00:00:43,734
+V automatizaci se plán ukládá do souboru a aplikuje se přesně to, co prošlo kontrolou.
+
+10
+00:00:45,033 --> 00:00:49,619
+Plus znamená vytvořit, vlnovka změnit na místě, mínus smazat.
+
+11
+00:00:49,619 --> 00:00:53,529
+Nejdůležitější je kombinace mínus a plus: nahrazení.
+
+12
+00:00:53,529 --> 00:00:55,859
+Zdroj se smaže a vytvoří znovu.
+
+13
+00:00:55,859 --> 00:00:58,340
+U databáze to znamená ztrátu dat.
+
+14
+00:00:58,340 --> 00:01:05,784
+Zvyk profesionálů: nejdřív najít řádek Plan a všechna nahrazení a smazání, teprve pak číst detaily.
+
+15
+00:01:07,133 --> 00:01:14,122
+Lock soubor s přesnými verzemi providerů patří do Gitu, aby kolegové i pipeline používali stejné verze.
+
+16
+00:01:14,122 --> 00:01:18,737
+Stav do Gitu nepatří nikdy: obsahuje tajemství a potřebuje zamykání.
+
+17
+00:01:18,737 --> 00:01:21,044
+Adresář s cache providerů také ne.
+
+18
+00:01:22,344 --> 00:01:28,843
+Otázka pro vás: když v labu jedna změníte obsah souboru, bude to změna na místě, nebo nahrazení?
+
+19
+00:01:28,843 --> 00:01:32,702
+Napište si předpověď a ověřte ji příkazem terraform plan.

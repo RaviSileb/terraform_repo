@@ -1,0 +1,90 @@
+{
+  "ep00-jak-se-ucit": {
+    "titulek": "Ep. 00 – Jak se v kurzu učit (a proč ne tak, jak jsme zvyklí)",
+    "soubor": "epizody/ep00-jak-se-ucit.mp3",
+    "delka_s": 310.9,
+    "velikost_b": 1896774,
+    "backend": "coqui",
+    "scenar": "ep00-jak-se-ucit.md"
+  },
+  "ep01-proc-infrastruktura-jako-kod": {
+    "titulek": "Ep. 01 – Proč infrastruktura jako kód",
+    "soubor": "epizody/ep01-proc-infrastruktura-jako-kod.mp3",
+    "delka_s": 314.7,
+    "velikost_b": 1919644,
+    "backend": "coqui",
+    "scenar": "ep01-proc-infrastruktura-jako-kod.md"
+  },
+  "ep02-hcl-a-workflow": {
+    "titulek": "Ep. 02 – HCL a workflow: init, plán, apply",
+    "soubor": "epizody/ep02-hcl-a-workflow.mp3",
+    "delka_s": 297.3,
+    "velikost_b": 1815397,
+    "backend": "coqui",
+    "scenar": "ep02-hcl-a-workflow.md"
+  },
+  "ep03-promenne-a-vystupy": {
+    "titulek": "Ep. 03 – Proměnné, výstupy a mýtus jménem sensitive",
+    "soubor": "epizody/ep03-promenne-a-vystupy.mp3",
+    "delka_s": 272.2,
+    "velikost_b": 1664958,
+    "backend": "coqui",
+    "scenar": "ep03-promenne-a-vystupy.md"
+  },
+  "ep04-providery-a-zavislosti": {
+    "titulek": "Ep. 04 – Providery, datové zdroje a graf závislostí",
+    "soubor": "epizody/ep04-providery-a-zavislosti.mp3",
+    "delka_s": 273.2,
+    "velikost_b": 1670451,
+    "backend": "coqui",
+    "scenar": "ep04-providery-a-zavislosti.md"
+  },
+  "ep05-state": {
+    "titulek": "Ep. 05 – State: paměť Terraformu",
+    "soubor": "epizody/ep05-state.mp3",
+    "delka_s": 298.1,
+    "velikost_b": 1819748,
+    "backend": "coqui",
+    "scenar": "ep05-state.md"
+  },
+  "ep06-count-for-each": {
+    "titulek": "Ep. 06 – count, for_each a past jménem index",
+    "soubor": "epizody/ep06-count-for-each.mp3",
+    "delka_s": 283.8,
+    "velikost_b": 1734056,
+    "backend": "coqui",
+    "scenar": "ep06-count-for-each.md"
+  },
+  "ep07-moduly": {
+    "titulek": "Ep. 07 – Moduly: stavebnice, ne kopírka",
+    "soubor": "epizody/ep07-moduly.mp3",
+    "delka_s": 258.0,
+    "velikost_b": 1579489,
+    "backend": "coqui",
+    "scenar": "ep07-moduly.md"
+  },
+  "ep08-testovani": {
+    "titulek": "Ep. 08 – Testování infrastruktury a cvičný požár",
+    "soubor": "epizody/ep08-testovani.mp3",
+    "delka_s": 275.3,
+    "velikost_b": 1682958,
+    "backend": "coqui",
+    "scenar": "ep08-testovani.md"
+  },
+  "ep09-tym-a-ci-cd": {
+    "titulek": "Ep. 09 – Tým, prostředí a pipeline",
+    "soubor": "epizody/ep09-tym-a-ci-cd.mp3",
+    "delka_s": 272.7,
+    "velikost_b": 1667889,
+    "backend": "coqui",
+    "scenar": "ep09-tym-a-ci-cd.md"
+  },
+  "ep10-cesta-dal": {
+    "titulek": "Ep. 10 – Závěrečný projekt a cesta dál",
+    "soubor": "epizody/ep10-cesta-dal.mp3",
+    "delka_s": 218.9,
+    "velikost_b": 1344862,
+    "backend": "coqui",
+    "scenar": "ep10-cesta-dal.md"
+  }
+}

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="font-variant-ligatures:none" viewBox="0 0 960 540" width="960" height="540" font-family="Inter, 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+  <title>Architektura Terraformu: konfigurace a stav vstupují do Terraform Core, který přes providery volá API</title>
+  <defs>
+    <marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="18" fill="#F8FAFC"/>
+  <text x="40" y="56" font-size="28" font-weight="700" fill="#0F172A">Jak Terraform funguje</text>
+  <text x="40" y="84" font-size="16" fill="#475569">Core počítá graf a rozdíly, providery mluví s API. Core sám žádný cloud neumí.</text>
+
+  <!-- vstupy -->
+  <g>
+    <rect x="40" y="130" width="200" height="110" rx="12" fill="#FFFFFF" stroke="#7B42BC" stroke-width="2"/>
+    <text x="140" y="165" text-anchor="middle" font-size="18" font-weight="700" fill="#7B42BC">Konfigurace</text>
+    <text x="140" y="190" text-anchor="middle" font-size="14" fill="#334155" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">*.tf, *.tfvars</text>
+    <text x="140" y="214" text-anchor="middle" font-size="13" fill="#64748B">požadovaný stav</text>
+  </g>
+  <g>
+    <rect x="40" y="300" width="200" height="110" rx="12" fill="#FFFFFF" stroke="#0EA5E9" stroke-width="2"/>
+    <text x="140" y="335" text-anchor="middle" font-size="18" font-weight="700" fill="#0369A1">State</text>
+    <text x="140" y="360" text-anchor="middle" font-size="14" fill="#334155" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">terraform.tfstate</text>
+    <text x="140" y="384" text-anchor="middle" font-size="13" fill="#64748B">poslední známý stav</text>
+  </g>
+
+  <!-- core -->
+  <rect x="300" y="150" width="220" height="240" rx="16" fill="#7B42BC"/>
+  <text x="410" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#FFFFFF">Terraform Core</text>
+  <g font-size="14" fill="#F3E8FF">
+    <text x="322" y="230">• načte a ověří HCL</text>
+    <text x="322" y="258">• sestaví graf závislostí</text>
+    <text x="322" y="286">• porovná kód × stav</text>
+    <text x="322" y="314">• vytvoří plán (diff)</text>
+    <text x="322" y="342">• řídí paralelní apply</text>
+    <text x="322" y="370">• zapíše nový stav</text>
+  </g>
+  <line x1="240" y1="185" x2="296" y2="220" stroke="#475569" stroke-width="2" marker-end="url(#s)"/>
+  <line x1="240" y1="355" x2="296" y2="320" stroke="#475569" stroke-width="2" marker-end="url(#s)" marker-start="url(#s)"/>
+
+  <!-- providers -->
+  <text x="640" y="128" text-anchor="middle" font-size="13" fill="#475569">pluginy (gRPC)</text>
+  <g font-size="15" font-weight="600">
+    <rect x="570" y="140" width="140" height="56" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/>
+    <text x="640" y="174" text-anchor="middle" fill="#0F172A">provider AWS</text>
+    <rect x="570" y="242" width="140" height="56" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/>
+    <text x="640" y="276" text-anchor="middle" fill="#0F172A">provider Docker</text>
+    <rect x="570" y="344" width="140" height="56" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2"/>
+    <text x="640" y="378" text-anchor="middle" fill="#0F172A">provider …</text>
+  </g>
+  <g stroke="#475569" stroke-width="2">
+    <line x1="520" y1="220" x2="566" y2="170" marker-end="url(#s)"/>
+    <line x1="520" y1="270" x2="566" y2="270" marker-end="url(#s)"/>
+    <line x1="520" y1="320" x2="566" y2="370" marker-end="url(#s)"/>
+  </g>
+
+  <!-- APIs -->
+  <g font-size="14">
+    <rect x="770" y="140" width="150" height="56" rx="28" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+    <text x="845" y="174" text-anchor="middle" fill="#78350F">AWS API</text>
+    <rect x="770" y="242" width="150" height="56" rx="28" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+    <text x="845" y="276" text-anchor="middle" fill="#78350F">Docker Engine</text>
+    <rect x="770" y="344" width="150" height="56" rx="28" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2"/>
+    <text x="845" y="378" text-anchor="middle" fill="#78350F">GitHub, K8s, DNS…</text>
+  </g>
+  <g stroke="#475569" stroke-width="2">
+    <line x1="710" y1="168" x2="766" y2="168" marker-end="url(#s)" marker-start="url(#s)"/>
+    <line x1="710" y1="270" x2="766" y2="270" marker-end="url(#s)" marker-start="url(#s)"/>
+    <line x1="710" y1="372" x2="766" y2="372" marker-end="url(#s)" marker-start="url(#s)"/>
+  </g>
+
+  <rect x="40" y="440" width="880" height="64" rx="12" fill="#EEF2FF"/>
+  <text x="60" y="468" font-size="15" fill="#312E81"><tspan font-weight="700">Registry</tspan> (registry.terraform.io) dodává providery a moduly. <tspan font-weight="700">terraform init</tspan> je stáhne a zamkne</text>
+  <text x="60" y="490" font-size="15" fill="#312E81">jejich verze do <tspan font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">.terraform.lock.hcl</tspan>. V registry jsou tisíce providerů.</text>
+</svg>

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="font-variant-ligatures:none" viewBox="0 0 960 540" width="960" height="540" font-family="Inter, 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+  <title>Testovací pyramida pro Terraform</title>
+  <rect width="960" height="540" rx="18" fill="#F8FAFC"/>
+  <text x="40" y="56" font-size="28" font-weight="700" fill="#0F172A">Testovací pyramida pro infrastrukturu</text>
+  <text x="40" y="84" font-size="16" fill="#475569">Dole levné a rychlé kontroly při každém commitu, nahoře drahé, ale nejvěrohodnější.</text>
+  <g>
+    <polygon points="380,110 440,110 500,180 320,180" fill="#7C3AED"/>
+    <text x="410" y="152" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">check</text>
+    <polygon points="320,186 500,186 560,256 260,256" fill="#2563EB"/>
+    <text x="410" y="226" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">integrační test</text>
+    <polygon points="260,262 560,262 620,332 200,332" fill="#0891B2"/>
+    <text x="410" y="302" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">jednotkové testy (plan, mock)</text>
+    <polygon points="200,338 620,338 680,408 140,408" fill="#059669"/>
+    <text x="410" y="378" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">lint + bezpečnostní sken</text>
+    <polygon points="140,414 680,414 740,484 80,484" fill="#65A30D"/>
+    <text x="410" y="454" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">fmt + validate</text>
+  </g>
+  <g font-size="13" fill="#334155">
+    <text x="560" y="140"><tspan font-weight="700">check { }</tspan> – běžící systém, jen varuje</text>
+    <text x="600" y="216"><tspan font-weight="700">terraform test</tspan>, command = apply</text>
+    <text x="640" y="232" fill="#64748B">reálné zdroje, minuty, peníze</text>
+    <text x="660" y="292"><tspan font-weight="700">terraform test</tspan>, plan / mock_provider</text>
+    <text x="700" y="308" fill="#64748B">sekundy, bez cloudu</text>
+    <text x="700" y="374"><tspan font-weight="700">tflint</tspan>, trivy, checkov</text>
+    <text x="760" y="450"><tspan font-weight="700">terraform fmt</tspan>,</text>
+    <text x="760" y="468"><tspan font-weight="700">validate</tspan></text>
+  </g>
+  <g font-size="13" fill="#475569">
+    <line x1="60" y1="470" x2="60" y2="130" stroke="#94A3B8" stroke-width="3"/>
+    <polygon points="52,134 60,116 68,134" fill="#94A3B8"/>
+    <text x="74" y="130">věrohodnost, cena,</text>
+    <text x="74" y="148">doba běhu</text>
+  </g>
+</svg>

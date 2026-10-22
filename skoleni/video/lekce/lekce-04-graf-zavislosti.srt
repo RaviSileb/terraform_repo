@@ -1,0 +1,71 @@
+1
+00:00:00,400 --> 00:00:06,891
+V této lekci uvidíte, jak Terraform z kódu skládá graf a podle něj rozhoduje o pořadí a paralelismu.
+
+2
+00:00:08,200 --> 00:00:11,174
+Kontejner potřebuje identifikátor image.
+
+3
+00:00:11,174 --> 00:00:13,925
+Ten zná až provider po stažení image.
+
+4
+00:00:13,925 --> 00:00:19,577
+Reference docker image nginx image id proto říká: image musí existovat dřív.
+
+5
+00:00:19,577 --> 00:00:21,733
+Depends on tady není potřeba.
+
+6
+00:00:21,733 --> 00:00:26,269
+Potřebujete ho jen u závislostí, které nejsou vidět v datech.
+
+7
+00:00:27,600 --> 00:00:29,590
+Z referencí vznikne graf.
+
+8
+00:00:29,590 --> 00:00:34,844
+Image a síť na sobě nezávisí, takže je Terraform vytváří současně.
+
+9
+00:00:34,844 --> 00:00:39,222
+Kontejnery přijdou na řadu, až je hotová jejich vrstva.
+
+10
+00:00:39,222 --> 00:00:44,077
+Mazání probíhá obráceně: nejdřív kontejnery, pak síť a image.
+
+11
+00:00:45,400 --> 00:00:49,686
+Některé změny jdou udělat za běhu, jiné vynutí nový objekt.
+
+12
+00:00:49,686 --> 00:00:52,229
+Barvu domu přemalujete, základy ne.
+
+13
+00:00:52,229 --> 00:00:55,425
+O tom, co je co, rozhoduje schéma providera.
+
+14
+00:00:55,425 --> 00:00:59,494
+U kontejneru v Dockeru vynutí náhradu skoro každá změna.
+
+15
+00:00:59,494 --> 00:01:03,271
+Plán vám to vždy řekne poznámkou forces replacement.
+
+16
+00:01:04,600 --> 00:01:10,412
+Otázka na závěr: co se stane, když zdroj A odkazuje na B a zároveň B na A?
+
+17
+00:01:10,412 --> 00:01:12,296
+A jak byste to opravili?
+
+18
+00:01:12,296 --> 00:01:15,202
+Vyzkoušejte si úlohu dvě v Opravárně.

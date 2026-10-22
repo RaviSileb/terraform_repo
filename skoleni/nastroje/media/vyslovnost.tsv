@@ -1,0 +1,147 @@
+# Výslovnostní slovník pro TTS (jen pro syntézu řeči, přepis zůstává beze změny).
+# Formát: výraz<TAB>výslovnost. Hvězdička na konci výrazu = shoda začátku slova, přípona se zachová.
+# Porovnává se bez ohledu na velikost písmen, delší výrazy mají přednost.
+create before destroy	krijejt bifór distroj
+prevent destroy	prevent distroj
+ignore changes	ignór čendžis
+expect failures	ekspekt fejljrs
+known after apply	nóun áftr eplaj
+forces replacement	fórsis riplejsment
+retrieval practice	ritrívl prektis
+list comprehension	list komprihenšn
+code review	kód rivjů
+pull request*	pul rikvest
+leaky abstraction	líký abstrakšn
+test first	test fést
+blast radius	blást rejdyjus
+terraform test	teraform test
+GitHub Actions	githab ekšns
+Terraform Core	teraform kór
+Linux Foundation	linuks faundejšn
+Business Source License	biznys sórs lajsns
+HashiCorp Configuration Language	hašikorp konfigurejšn lengvidž
+HCP Terraform	há cé pé teraform
+Open Policy Agent	oupn polisy ejdžnt
+detailed exitcode	ditejld egzitkód
+for each	for ýč
+for_each	for ýč
+depends on	dipends on
+depends_on	dipends on
+required providers	rikvajrd provajdrs
+required_providers	rikvajrd provajdrs
+local file	loukl fajl
+random pet	rendom pet
+lab tři web	lab tři veb
+TF podtržítko VAR	té ef podtržítko var
+terraform*	teraform
+provider*	provajdr
+apply	eplaj
+plan	plán
+init	inyt
+destroy	distroj
+state	stejt
+resource	rizórs
+output*	autput
+outputs	autputs
+count	kaunt
+moved	můvd
+removed	rimůvd
+import	import
+drift	drift
+lock	lok
+backend*	bekend
+workflow	vórkflou
+pipeline*	pajplajn
+GitHub	githab
+Actions	ekšns
+Docker*	dokr
+cloud*	klaud
+HashiCorp	hašikorp
+OpenTofu	oupn tofu
+IBM	í bí em
+AWS	á vé es
+Azure	ejžr
+Google	gůgl
+API	á pé í
+CI/CD	cé í cé dé
+CI	cé í
+IaC	í á cé
+HCL	há cé el
+JSON	džejsn
+YAML	jamel
+mock*	mok
+check	ček
+lint	lint
+TF lint	té ef lint
+TFLint	té ef lint
+tflint	té ef lint
+review	rivjů
+merge	mérdž
+commit*	komit
+deploy	diploj
+OIDC	ó í dé cé
+Kubernetes	kubernetís
+S3	es tři
+tfvars	té ef vars
+tfstate	té ef stejt
+tftest	té ef test
+hcl	há cé el
+tf	té ef
+null	nal
+sensitive	sensitiv
+ephemeral	ifemerl
+write only	rajt ounly
+validate	validejt
+lifecycle	lajfsajkl
+dynamic	dajnemik
+precondition	prikondišn
+postcondition	poustkondišn
+registry	redžistry
+Codespaces	kódspejsis
+PRIMM	prim
+Predict	pridikt
+Run	ran
+Investigate	investygejt
+Modify	modyfaj
+Make	mejk
+assert	asert
+refresh	rifreš
+workspace*	vórkspejs
+wrapper	repr
+replace	riplejs
+Pulumi	pulumi
+CloudFormation	klaudformejšn
+Ansible	ensibl
+snowflake	snoufléjk
+ClickOps	klikops
+nginx	endžin iks
+whoami	hú em aj
+README	rídmí
+Trivy	trivi
+Checkov	čekov
+Atlantis	atlentys
+TACOS	takos
+Spacelift	spejslift
+env0	env zíro
+Terragrunt	teragrant
+Stacks	steks
+Vault	vólt
+Anki	anky
+grep	grep
+main	mejn
+yes	jes
+out	aut
+fmt	format
+console	konzol
+templatefile	templejtfajl
+usa	jú es ej
+dev	dev
+prod	prod
+staging	stejdžing
+test	test
+container*	kontejnr
+Go	gou
+Dunloskyho	danloskyho
+Pashler	pešlr
+Richarda Mayera	ričarda mejra
+Mayer*	mejr

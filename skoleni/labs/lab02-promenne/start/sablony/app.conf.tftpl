@@ -1,0 +1,10 @@
+# Vygenerováno Terraformem – needitujte ručně
+name     = ${nazev}
+replicas = ${repliky}
+%{ for p in porty ~}
+listen   = 0.0.0.0:${p}
+%{ endfor ~}
+
+[labels]
+# TODO 12: pro každý štítek vypište řádek  klic = "hodnota"
+#          syntaxe: %{ for k, v in stitky ~} ... %{ endfor ~}

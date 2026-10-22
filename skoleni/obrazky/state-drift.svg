@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="font-variant-ligatures:none" viewBox="0 0 960 540" width="960" height="540" font-family="Inter, 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+  <title>Vztah kódu, stavu a reality; drift vzniká ručním zásahem</title>
+  <defs>
+    <marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+    <marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#DC2626"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="18" fill="#F8FAFC"/>
+  <text x="40" y="56" font-size="28" font-weight="700" fill="#0F172A">Kód × State × Realita</text>
+  <text x="40" y="84" font-size="16" fill="#475569">Terraform vidí realitu jen přes stav. Drift = realita se změnila mimo Terraform.</text>
+
+  <rect x="370" y="110" width="220" height="100" rx="14" fill="#EDE9FE" stroke="#7B42BC" stroke-width="2"/>
+  <text x="480" y="150" text-anchor="middle" font-size="20" font-weight="700" fill="#5B21B6">Kód</text>
+  <text x="480" y="178" text-anchor="middle" font-size="14" fill="#4C1D95">co CHCETE</text>
+
+  <rect x="90" y="360" width="240" height="110" rx="14" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+  <text x="210" y="400" text-anchor="middle" font-size="20" font-weight="700" fill="#075985">State</text>
+  <text x="210" y="426" text-anchor="middle" font-size="14" fill="#0C4A6E">co si Terraform PAMATUJE</text>
+  <text x="210" y="450" text-anchor="middle" font-size="12" fill="#0C4A6E" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">ID, atributy, závislosti</text>
+
+  <rect x="630" y="360" width="240" height="110" rx="14" fill="#FEF3C7" stroke="#D97706" stroke-width="2"/>
+  <text x="750" y="400" text-anchor="middle" font-size="20" font-weight="700" fill="#92400E">Realita</text>
+  <text x="750" y="426" text-anchor="middle" font-size="14" fill="#78350F">co OPRAVDU běží</text>
+  <text x="750" y="450" text-anchor="middle" font-size="12" fill="#78350F">cloud / Docker / API</text>
+
+  <g stroke="#475569" stroke-width="2.5" fill="none">
+    <line x1="400" y1="212" x2="250" y2="356" marker-end="url(#s)" marker-start="url(#s)"/>
+    <line x1="626" y1="415" x2="334" y2="415" marker-end="url(#s)"/>
+    <line x1="334" y1="440" x2="626" y2="440" marker-end="url(#s)"/>
+  </g>
+  <text x="250" y="270" font-size="15" font-weight="700" fill="#334155">plan</text>
+  <text x="250" y="290" font-size="13" fill="#475569">porovná kód se stavem</text>
+  <text x="480" y="406" text-anchor="middle" font-size="13" fill="#334155">refresh: přečte realitu</text>
+  <text x="480" y="462" text-anchor="middle" font-size="13" fill="#334155">apply: změní realitu a stav</text>
+
+  <g>
+    <path d="M810,252 L790,352" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="8 6" fill="none" marker-end="url(#r)"/>
+    <rect x="700" y="180" width="220" height="70" rx="12" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+    <text x="810" y="210" text-anchor="middle" font-size="15" font-weight="700" fill="#991B1B">Ruční zásah = DRIFT</text>
+    <text x="810" y="232" text-anchor="middle" font-size="13" fill="#7F1D1D">konzole, docker rm, skript…</text>
+  </g>
+  <text x="40" y="510" font-size="14" fill="#334155"><tspan font-weight="700">Co s driftem?</tspan> Opravit (<tspan font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">apply</tspan> vrátí realitu ke kódu) · Přijmout (upravit kód, nebo <tspan font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">apply -refresh-only</tspan>) · Zabránit (oprávnění, CI)</text>
+</svg>

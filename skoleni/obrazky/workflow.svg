@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="font-variant-ligatures:none" viewBox="0 0 960 540" width="960" height="540" font-family="Inter, 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+  <title>Základní workflow Terraformu: napsat, init, plan, apply, destroy</title>
+  <defs>
+    <marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="18" fill="#F8FAFC"/>
+  <text x="40" y="56" font-size="28" font-weight="700" fill="#0F172A">Workflow: napsat → init → plan → apply</text>
+  <text x="40" y="84" font-size="16" fill="#475569">Každá změna infrastruktury jde stejnou cestou. Plán je smlouva: ukazuje, co se stane, dřív než se to stane.</text>
+
+  <g>
+    <rect x="40" y="150" width="160" height="150" rx="14" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+    <text x="120" y="188" text-anchor="middle" font-size="20" font-weight="700" fill="#0F172A">Napsat</text>
+    <text x="120" y="214" text-anchor="middle" font-size="14" fill="#475569" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">*.tf</text>
+    <text x="120" y="248" text-anchor="middle" font-size="13" fill="#475569">editor + Git</text>
+    <rect x="58" y="262" width="58" height="24" rx="12" fill="#E2E8F0"/><text x="87" y="279" text-anchor="middle" font-size="12" fill="#0F172A" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">fmt</text>
+    <rect x="122" y="262" width="64" height="24" rx="12" fill="#E2E8F0"/><text x="154" y="279" text-anchor="middle" font-size="12" fill="#0F172A" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">validate</text>
+  </g>
+  <g>
+    <rect x="250" y="150" width="160" height="150" rx="14" fill="#EDE9FE" stroke="#7B42BC" stroke-width="2"/>
+    <text x="330" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#5B21B6" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">init</text>
+    <text x="330" y="222" text-anchor="middle" font-size="13" fill="#4C1D95">stáhne providery</text>
+    <text x="330" y="242" text-anchor="middle" font-size="13" fill="#4C1D95">a moduly, nastaví</text>
+    <text x="330" y="262" text-anchor="middle" font-size="13" fill="#4C1D95">backend stavu</text>
+  </g>
+  <g>
+    <rect x="460" y="150" width="190" height="150" rx="14" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/>
+    <text x="555" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#075985" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">plan</text>
+    <text x="555" y="222" text-anchor="middle" font-size="13" fill="#0C4A6E">refresh: přečte realitu</text>
+    <text x="555" y="242" text-anchor="middle" font-size="13" fill="#0C4A6E">porovná s kódem</text>
+    <text x="555" y="262" text-anchor="middle" font-size="13" fill="#0C4A6E">a vypíše rozdíl</text>
+  </g>
+  <g>
+    <rect x="700" y="150" width="220" height="150" rx="14" fill="#DCFCE7" stroke="#16A34A" stroke-width="2"/>
+    <text x="810" y="190" text-anchor="middle" font-size="20" font-weight="700" fill="#166534" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">apply</text>
+    <text x="810" y="222" text-anchor="middle" font-size="13" fill="#14532D">provede plán (paralelně</text>
+    <text x="810" y="242" text-anchor="middle" font-size="13" fill="#14532D">podle grafu závislostí)</text>
+    <text x="810" y="262" text-anchor="middle" font-size="13" fill="#14532D">a uloží nový stav</text>
+  </g>
+  <g stroke="#475569" stroke-width="2.5" fill="none">
+    <line x1="200" y1="225" x2="246" y2="225" marker-end="url(#s)"/>
+    <line x1="410" y1="225" x2="456" y2="225" marker-end="url(#s)"/>
+    <line x1="650" y1="225" x2="696" y2="225" marker-end="url(#s)"/>
+    <path d="M810,300 C810,380 120,380 120,304" marker-end="url(#s)"/>
+  </g>
+  <text x="465" y="392" text-anchor="middle" font-size="15" fill="#334155">další změna → znovu plan → apply (idempotence: bez změn kódu je plán prázdný)</text>
+
+  <g>
+    <rect x="700" y="420" width="220" height="80" rx="14" fill="#FEE2E2" stroke="#DC2626" stroke-width="2"/>
+    <text x="810" y="455" text-anchor="middle" font-size="20" font-weight="700" fill="#991B1B" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">destroy</text>
+    <text x="810" y="482" text-anchor="middle" font-size="13" fill="#7F1D1D">zruší vše, co je ve stavu</text>
+  </g>
+  <g font-size="14" fill="#334155">
+    <text x="40" y="440"><tspan font-weight="700">Uložený plán:</tspan> <tspan font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">terraform plan -out=tfplan</tspan></text>
+    <text x="40" y="464"><tspan font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">terraform apply tfplan</tspan> provede přesně to, co jste schválili.</text>
+    <text x="40" y="496" fill="#64748B">V CI se plán ukládá jako artefakt a aplikuje až po review.</text>
+  </g>
+</svg>

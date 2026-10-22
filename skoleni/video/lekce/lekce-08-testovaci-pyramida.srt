@@ -1,0 +1,59 @@
+1
+00:00:00,400 --> 00:00:06,229
+Jak poznat, že vaše infrastruktura funguje, a jak poznat, že vaše testy za něco stojí?
+
+2
+00:00:07,529 --> 00:00:12,666
+Dole jsou levné kontroly: formát, validace, lint a bezpečnostní sken.
+
+3
+00:00:12,666 --> 00:00:16,909
+Uprostřed jednotkové testy s plánem nebo mock providerem.
+
+4
+00:00:16,909 --> 00:00:24,726
+Nahoře integrační testy, které opravdu nasadí infrastrukturu, a check bloky, které hlídají běžící systém.
+
+5
+00:00:26,029 --> 00:00:29,962
+Každý blok run spustí plán nebo apply a ověří podmínky.
+
+6
+00:00:29,962 --> 00:00:34,467
+Mock provider nevolá žádné API, takže test proběhne za vteřinu.
+
+7
+00:00:34,467 --> 00:00:40,904
+A expect failures je negativní test: projde jen tehdy, když validace špatný vstup odmítne.
+
+8
+00:00:42,229 --> 00:00:44,089
+Jak poznat dobré testy?
+
+9
+00:00:44,089 --> 00:00:45,707
+Mutačním testováním.
+
+10
+00:00:45,707 --> 00:00:49,508
+Do modulu vnesete malou chybu a spustíte testy.
+
+11
+00:00:49,508 --> 00:00:52,176
+Pokud selžou, chyba je zachycena.
+
+12
+00:00:52,176 --> 00:00:54,198
+Pokud projdou, máte díru.
+
+13
+00:00:54,198 --> 00:00:57,918
+V labu sedm to dělá skript s dvanácti mutanty.
+
+14
+00:00:59,229 --> 00:01:02,757
+Otázka: co test s mock providerem nikdy neověří?
+
+15
+00:01:02,757 --> 00:01:04,815
+A který typ testu to doplní?

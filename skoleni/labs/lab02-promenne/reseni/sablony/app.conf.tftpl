@@ -1,0 +1,11 @@
+# Vygenerováno Terraformem – needitujte ručně
+name     = ${nazev}
+replicas = ${repliky}
+%{ for p in porty ~}
+listen   = 0.0.0.0:${p}
+%{ endfor ~}
+
+[labels]
+%{ for k, v in stitky ~}
+${k} = "${v}"
+%{ endfor ~}

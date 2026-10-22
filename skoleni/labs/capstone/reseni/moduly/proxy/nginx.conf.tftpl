@@ -1,0 +1,18 @@
+upstream backend {
+%{ for b in backendy ~}
+    server ${b}:80;
+%{ endfor ~}
+}
+
+server {
+    listen 80;
+
+    location = /zdravi {
+        return 200 "ok\n";
+    }
+
+    location / {
+        proxy_pass http://backend;
+        proxy_set_header Host $host;
+    }
+}

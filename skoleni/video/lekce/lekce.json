@@ -1,0 +1,74 @@
+{
+  "lekce-01-jak-funguje-terraform": {
+    "cislo": "01",
+    "nazev": "Jak funguje Terraform",
+    "modul": "01-proc-iac",
+    "delka_s": 121.1,
+    "velikost_b": 1344905,
+    "backend": "coqui"
+  },
+  "lekce-02-workflow-a-plan": {
+    "cislo": "02",
+    "nazev": "Workflow a plán",
+    "modul": "02-hcl-a-workflow",
+    "delka_s": 93.7,
+    "velikost_b": 966772,
+    "backend": "coqui"
+  },
+  "lekce-03-promenne": {
+    "cislo": "03",
+    "nazev": "Proměnné a citlivá data",
+    "modul": "03-promenne-a-vystupy",
+    "delka_s": 83.6,
+    "velikost_b": 846127,
+    "backend": "coqui"
+  },
+  "lekce-04-graf-zavislosti": {
+    "cislo": "04",
+    "nazev": "Graf závislostí",
+    "modul": "04-providery-a-zavislosti",
+    "delka_s": 76.2,
+    "velikost_b": 790994,
+    "backend": "coqui"
+  },
+  "lekce-05-state-a-drift": {
+    "cislo": "05",
+    "nazev": "State a drift",
+    "modul": "05-state",
+    "delka_s": 73.2,
+    "velikost_b": 740058,
+    "backend": "coqui"
+  },
+  "lekce-06-count-vs-for-each": {
+    "cislo": "06",
+    "nazev": "count vs. for_each",
+    "modul": "06-meta-argumenty",
+    "delka_s": 78.5,
+    "velikost_b": 838560,
+    "backend": "coqui"
+  },
+  "lekce-07-moduly": {
+    "cislo": "07",
+    "nazev": "Moduly",
+    "modul": "07-moduly",
+    "delka_s": 59.3,
+    "velikost_b": 636180,
+    "backend": "coqui"
+  },
+  "lekce-08-testovaci-pyramida": {
+    "cislo": "08",
+    "nazev": "Testovací pyramida",
+    "modul": "08-testovani",
+    "delka_s": 65.8,
+    "velikost_b": 687990,
+    "backend": "coqui"
+  },
+  "lekce-09-ci-cd": {
+    "cislo": "09",
+    "nazev": "CI/CD pro Terraform",
+    "modul": "09-tymova-prace-a-ci-cd",
+    "delka_s": 66.9,
+    "velikost_b": 713117,
+    "backend": "coqui"
+  }
+}

@@ -1,0 +1,43 @@
+# Kostra pipeline pro lab 08. Doplňte TODO a zkopírujte do .github/workflows/lab08-terraform.yml
+name: "Lab 08 – Terraform CI/CD"
+
+on:
+  pull_request:
+    paths:
+      - "skoleni/labs/lab08-ci-cd/infra/**"
+      - ".github/workflows/lab08-terraform.yml"
+  # TODO 1: spouštění i po pushi do větve main (jen při změně infra/)
+  workflow_dispatch:
+
+# TODO 2: oprávnění tokenu – jen čtení obsahu repozitáře
+
+# TODO 3: concurrency – jedna skupina na větev, běžící běh nepřerušovat
+
+env:
+  TF_IN_AUTOMATION: "true"
+  TF_INPUT: "false"
+  TF_DIR: skoleni/labs/lab08-ci-cd/infra
+
+jobs:
+  kontrola:
+    name: Kontrola a plán
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ env.TF_DIR }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: "~> 1.10"
+          terraform_wrapper: false
+
+      # TODO 4: kroky fmt -check, init, validate, test
+      # TODO 5: plán uložený do souboru tfplan a jeho výpis do $GITHUB_STEP_SUMMARY
+      # TODO 6: nahrání tfplan jako artefaktu (actions/upload-artifact@v7)
+
+  # TODO 7: job "nasazeni"
+  #   - běží jen po pushi do main a až po úspěšném jobu kontrola
+  #   - používá GitHub environment "skoleni-produkce" (ruční schválení)
+  #   - stáhne artefakt tfplan (actions/download-artifact@v8) a spustí terraform apply tfplan

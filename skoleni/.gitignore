@@ -1,0 +1,12 @@
+# Lock soubory v labech si každý účastník generuje sám (terraform init),
+# v produkčních repozitářích je naopak commitujte.
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+vystup/
+crash.log
+# Výjimka: pipeline v labu 08 potřebuje stejné verze providerů ve všech jobech.
+!labs/lab08-ci-cd/infra/.terraform.lock.hcl

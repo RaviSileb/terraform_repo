@@ -1,0 +1,104 @@
+name: "Školení Terraform – kontrola a autograder"
+
+on:
+  push:
+    paths:
+      - "skoleni/**"
+      - ".github/workflows/skoleni-ci.yml"
+  pull_request:
+    paths:
+      - "skoleni/**"
+      - ".github/workflows/skoleni-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: skoleni-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  TF_IN_AUTOMATION: "true"
+  TF_INPUT: "false"
+
+jobs:
+  reseni:
+    name: "Referenční řešení – ${{ matrix.cil }}"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        cil: [lab01, lab02, lab03, lab04, lab05, lab06, lab07, lab08, capstone, opravarna]
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: "~> 1.10"
+          terraform_wrapper: false
+
+      - uses: terraform-linters/setup-tflint@v6
+
+      - name: actionlint (lab08)
+        if: matrix.cil == 'lab08'
+        run: |
+          bash <(curl -sSfL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+          sudo mv actionlint /usr/local/bin/
+
+      - name: Kontrola (včetně integračních testů v Dockeru)
+        run: skoleni/nastroje/zkontroluj.sh ${{ matrix.cil }} reseni --integrace
+
+  opravarna-je-rozbita:
+    name: "Opravárna – zadání musí selhat"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: "~> 1.10"
+          terraform_wrapper: false
+
+      - name: Každá úloha musí v zadání selhat
+        run: |
+          rc=0
+          for u in skoleni/opravarna/[0-9]*/; do
+            if (cd "$u" && terraform init -input=false -no-color >/dev/null 2>&1 && terraform validate -no-color >/dev/null 2>&1 && terraform plan -no-color -input=false >/dev/null 2>&1); then
+              echo "::error::$u prochází, ale má být rozbitá"; rc=1
+            else
+              echo "✅ $u selhává podle očekávání"
+            fi
+          done
+          exit $rc
+
+  testy-ve-start-jsou-shodne:
+    name: "Testy ve start/ a reseni/ jsou shodné"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - run: |
+          rc=0
+          for t in skoleni/labs/*/reseni/tests skoleni/labs/lab06-moduly/reseni/moduly/webapp/tests; do
+            s="${t/\/reseni\//\/start\/}"
+            [ "$t" = skoleni/labs/lab07-testovani/reseni/tests ] && continue   # v labu 07 píše testy účastník
+            diff -ru "$t" "$s" || { echo "::error::$s se liší od $t"; rc=1; }
+          done
+          exit $rc
+
+  # Ve forku účastníka: přehled splněných labů (informativní, nikdy neshodí build).
+  autograder:
+    name: "Autograder – můj postup"
+    if: github.event.repository.fork
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: hashicorp/setup-terraform@v4
+        with:
+          terraform_version: "~> 1.10"
+          terraform_wrapper: false
+
+      - name: Kontrola mých řešení (start/)
+        run: skoleni/nastroje/zkontroluj.sh vse start

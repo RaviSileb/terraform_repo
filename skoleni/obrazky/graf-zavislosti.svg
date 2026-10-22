@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="font-variant-ligatures:none" viewBox="0 0 960 540" width="960" height="540" font-family="Inter, 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+  <title>Graf závislostí: sítě a image vznikají paralelně, kontejnery po nich</title>
+  <defs><marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+  <rect width="960" height="540" rx="18" fill="#F8FAFC"/>
+  <text x="40" y="56" font-size="28" font-weight="700" fill="#0F172A">Graf závislostí z referencí</text>
+  <text x="40" y="84" font-size="16" fill="#475569">Šipka = „musí existovat dřív“. Co je ve stejné vrstvě, Terraform vytváří paralelně.</text>
+  <rect x="40" y="110" width="880" height="120" rx="14" fill="#EEF2FF"/>
+  <text x="56" y="134" font-size="13" font-weight="700" fill="#4338CA">VRSTVA 1 – paralelně</text>
+  <g font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace" font-size="14" text-anchor="middle">
+    <rect x="80" y="148" width="230" height="56" rx="10" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/><text x="195" y="181" fill="#075985">docker_image.nginx</text>
+    <rect x="365" y="148" width="230" height="56" rx="10" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/><text x="480" y="181" fill="#075985">docker_network.lab</text>
+    <rect x="650" y="148" width="230" height="56" rx="10" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/><text x="765" y="181" fill="#075985">docker_image.whoami</text>
+  </g>
+  <rect x="40" y="290" width="880" height="120" rx="14" fill="#F0FDF4"/>
+  <text x="56" y="314" font-size="13" font-weight="700" fill="#15803D">VRSTVA 2 – paralelně</text>
+  <g font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace" font-size="14" text-anchor="middle">
+    <rect x="160" y="328" width="270" height="56" rx="10" fill="#FFFFFF" stroke="#16A34A" stroke-width="2"/><text x="295" y="361" fill="#14532D">docker_container.web</text>
+    <rect x="530" y="328" width="270" height="56" rx="10" fill="#FFFFFF" stroke="#16A34A" stroke-width="2"/><text x="665" y="361" fill="#14532D">docker_container.api</text>
+  </g>
+  <g stroke="#475569" stroke-width="2.2" fill="none">
+    <line x1="195" y1="206" x2="280" y2="324" marker-end="url(#s)"/>
+    <line x1="460" y1="206" x2="320" y2="324" marker-end="url(#s)"/>
+    <line x1="500" y1="206" x2="640" y2="324" marker-end="url(#s)"/>
+    <line x1="765" y1="206" x2="690" y2="324" marker-end="url(#s)"/>
+  </g>
+  <g font-size="12" fill="#475569" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace" stroke="#F8FAFC" stroke-width="6" paint-order="stroke">
+    <text x="120" y="262">image = docker_image.nginx.image_id</text>
+    <text x="520" y="262">networks_advanced { name = docker_network.lab.name }</text>
+  </g>
+  <g font-size="15" fill="#334155">
+    <text x="40" y="452"><tspan font-weight="700">Vytváření:</tspan> vrstva 1 → vrstva 2. <tspan font-weight="700">Mazání:</tspan> obráceně – nejdřív kontejnery, pak síť a image.</text>
+    <text x="40" y="480"><tspan font-weight="700">Paralelismus:</tspan> výchozí <tspan font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">-parallelism=10</tspan>. <tspan font-weight="700">depends_on</tspan> jen pro závislosti, které nejsou vidět v datech.</text>
+    <text x="40" y="508" fill="#64748B">Vypsání grafu: <tspan font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">terraform graph | dot -Tsvg &gt; graf.svg</tspan></text>
+  </g>
+</svg>

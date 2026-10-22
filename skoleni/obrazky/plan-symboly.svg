@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="font-variant-ligatures:none" viewBox="0 0 960 400" width="960" height="400" font-family="Inter, 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+  <title>Symboly v plánu Terraformu a jejich riziko</title>
+  <rect width="960" height="400" rx="18" fill="#F8FAFC"/>
+  <text x="40" y="52" font-size="26" font-weight="700" fill="#0F172A">Jak číst plán</text>
+  <text x="40" y="80" font-size="15" fill="#475569">Před každým apply hledejte v plánu hlavně dvě věci: <tspan font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace" font-weight="700" fill="#B45309">-/+</tspan> a <tspan font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace" font-weight="700" fill="#DC2626">-</tspan>.</text>
+  <g font-size="15">
+    <rect x="40" y="104" width="880" height="54" rx="10" fill="#DCFCE7"/>
+    <text x="70" y="139" font-size="26" font-weight="700" fill="#16A34A" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">+</text>
+    <text x="150" y="137" font-weight="700" fill="#14532D">create</text><text x="300" y="137" fill="#14532D">vytvoří nový zdroj</text><text x="900" y="137" text-anchor="end" fill="#14532D">nízké riziko</text>
+    <rect x="40" y="166" width="880" height="54" rx="10" fill="#E0F2FE"/>
+    <text x="70" y="201" font-size="26" font-weight="700" fill="#0284C7" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">~</text>
+    <text x="150" y="199" font-weight="700" fill="#075985">update in-place</text><text x="300" y="199" fill="#075985">změní zdroj za běhu (např. tagy)</text><text x="900" y="199" text-anchor="end" fill="#075985">obvykle bezpečné</text>
+    <rect x="40" y="228" width="880" height="54" rx="10" fill="#FEF3C7"/>
+    <text x="56" y="263" font-size="26" font-weight="700" fill="#B45309" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">-/+</text>
+    <text x="150" y="261" font-weight="700" fill="#78350F">replace</text><text x="300" y="261" fill="#78350F">zničí a vytvoří znovu – hledejte „# forces replacement“</text><text x="900" y="261" text-anchor="end" fill="#78350F">výpadek, ztráta dat</text>
+    <rect x="40" y="290" width="880" height="54" rx="10" fill="#FEE2E2"/>
+    <text x="70" y="325" font-size="26" font-weight="700" fill="#DC2626" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">-</text>
+    <text x="150" y="323" font-weight="700" fill="#7F1D1D">destroy</text><text x="300" y="323" fill="#7F1D1D">zničí zdroj</text><text x="900" y="323" text-anchor="end" fill="#7F1D1D">nevratné</text>
+  </g>
+  <text x="40" y="378" font-size="14" fill="#475569"><tspan font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">(known after apply)</tspan> = hodnotu zná až provider po vytvoření · <tspan font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">&lt;= read</tspan> = čtení data source</text>
+</svg>

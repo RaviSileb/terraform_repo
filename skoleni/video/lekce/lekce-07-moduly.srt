@@ -1,0 +1,47 @@
+1
+00:00:00,400 --> 00:00:05,892
+Moduly jsou způsob, jak psát infrastrukturu jednou a používat ji mnohokrát.
+
+2
+00:00:07,200 --> 00:00:10,239
+Modul má vstupy, tělo se zdroji a výstupy.
+
+3
+00:00:10,239 --> 00:00:16,318
+Kořenový modul ho volá pro každé prostředí s jinými hodnotami a skládá jeho výstupy.
+
+4
+00:00:16,318 --> 00:00:20,008
+Vnitřek modulu můžete měnit, dokud držíte rozhraní.
+
+5
+00:00:21,308 --> 00:00:25,261
+Zdroj modulu může být lokální složka, registry nebo Git.
+
+6
+00:00:25,261 --> 00:00:30,131
+V produkci vždy pevná verze, u Gitu tag v parametru ref, nikdy větev.
+
+7
+00:00:30,131 --> 00:00:34,720
+Modul přitom nekonfiguruje providery, ty mu předá kořenový modul.
+
+8
+00:00:36,019 --> 00:00:40,467
+Dobrý modul řeší jednu věc na úrovni, které rozumí uživatel.
+
+9
+00:00:40,467 --> 00:00:44,916
+Má málo povinných vstupů, každý s popisem, typem a validací.
+
+10
+00:00:44,916 --> 00:00:47,066
+A má README, příklad a testy.
+
+11
+00:00:47,066 --> 00:00:52,404
+Pozor na moduly, které jen přeposílají desítky argumentů jednoho zdroje.
+
+12
+00:00:53,719 --> 00:00:58,294
+Zastavte video: proč není dobrý nápad odkazovat na modul přes větev main?

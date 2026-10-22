@@ -1,0 +1,103 @@
+1
+00:00:00,400 --> 00:00:02,365
+Vítejte u první video lekce.
+
+2
+00:00:02,365 --> 00:00:13,172
+Za necelé čtyři minuty si ukážeme, proč infrastrukturu popisujeme kódem, čím se liší deklarativní přístup od skriptu a z jakých částí se Terraform skládá.
+
+3
+00:00:14,500 --> 00:00:15,714
+Vlevo je skript.
+
+4
+00:00:15,714 --> 00:00:24,893
+Popisuje kroky a každý okrajový případ musí ošetřit sám: co když síť už existuje, co když běží jen dva kontejnery ze tří.
+
+5
+00:00:24,893 --> 00:00:26,410
+Vpravo je deklarace.
+
+6
+00:00:26,410 --> 00:00:30,051
+Popíšete cílový stav a Terraform spočítá rozdíl.
+
+7
+00:00:30,051 --> 00:00:34,754
+Když změníte počet na dva, plán řekne: jeden kontejner smazat.
+
+8
+00:00:34,754 --> 00:00:38,243
+Opakované spuštění bez změny kódu nic nezmění.
+
+9
+00:00:38,243 --> 00:00:40,140
+Tomu se říká idempotence.
+
+10
+00:00:41,440 --> 00:00:48,365
+Terraform Core načte konfiguraci, sestaví graf závislostí, porovná ho se stavem a vytvoří plán.
+
+11
+00:00:48,365 --> 00:00:50,114
+Sám ale nezná žádné API.
+
+12
+00:00:50,114 --> 00:00:55,873
+To je práce providerů, pluginů pro AWS, Docker, GitHub a tisíce dalších služeb.
+
+13
+00:00:55,873 --> 00:01:01,121
+Stav si pamatuje, které skutečné objekty patří ke kterým zdrojům v kódu.
+
+14
+00:01:01,121 --> 00:01:07,171
+Providery i moduly se stahují z registry a jejich verze se zamykají v souboru lock.
+
+15
+00:01:08,471 --> 00:01:09,561
+Co tím získáte?
+
+16
+00:01:09,561 --> 00:01:14,358
+Audit, protože každá změna má autora a zdůvodnění v historii Gitu.
+
+17
+00:01:14,358 --> 00:01:19,664
+Opakovatelnost, protože prostředí umíte vytvořit znovu, třeba po havárii.
+
+18
+00:01:19,664 --> 00:01:24,243
+Konzistenci, protože test a produkce vznikají ze stejného kódu.
+
+19
+00:01:24,243 --> 00:01:29,767
+A review, protože změnu infrastruktury vidí druhý člověk dřív, než se stane.
+
+20
+00:01:31,071 --> 00:01:32,945
+A kdy Terraform nepoužít?
+
+21
+00:01:32,945 --> 00:01:37,892
+Na konfiguraci uvnitř operačního systému jsou lepší jiné nástroje.
+
+22
+00:01:37,892 --> 00:01:41,790
+Objekty, které žijí pár sekund, patří orchestrátoru.
+
+23
+00:01:41,790 --> 00:01:47,038
+A data aplikací, třeba uživatelé v databázi, Terraform spravovat nemá.
+
+24
+00:01:48,371 --> 00:01:53,058
+Zastavte video a odpovězte: kde Terraform zjistí, co už existuje?
+
+25
+00:01:53,058 --> 00:01:55,943
+A co se stane, když tu informaci ztratí?
+
+26
+00:01:55,943 --> 00:02:00,053
+Odpověď najdete v modulu pět, ale nejdřív to zkuste sami.

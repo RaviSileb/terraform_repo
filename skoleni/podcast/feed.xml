@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terraform: od nuly k produkci</title>
+    <link>https://github.com/ravisileb/terraform_repo/tree/main/skoleni</link>
+    <atom:link href="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/feed.xml" rel="self" type="application/rss+xml"/>
+    <language>cs</language>
+    <description>Podcast ke kurzu infrastruktury jako kódu s Terraformem. Petra a Tomáš probírají pojmy, analogie a typické chyby, které pak procvičíte v labech. Hlasy jsou syntetické.</description>
+    <itunes:author>Terraform školení</itunes:author>
+    <itunes:image href="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/obal.png"/>
+    <itunes:category text="Technology"/>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>serial</itunes:type>
+    <item>
+      <title>Ep. 00 – Jak se v kurzu učit (a proč ne tak, jak jsme zvyklí)</title>
+      <description>Ahoj, tady Tomáš a vítejte u podcastu ke kurzu Terraform od nuly k produkci. Se mnou je Petra, která infrastrukturu jako kód dělá roky. Petro, než se pustíme do Terraformu, chtěla jsi mluvit o tom, jak se učit. Není to zbytečné? Prostě si to přečtu a vyzkouším.</description>
+      <link>https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep00-jak-se-ucit.md</link>
+      <guid isPermaLink="false">terraform-skoleni-ep00-jak-se-ucit</guid>
+      <pubDate>Thu, 22 Oct 2026 06:00:00 +0000</pubDate>
+      <enclosure url="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/epizody/ep00-jak-se-ucit.mp3" length="1896774" type="audio/mpeg"/>
+      <itunes:duration>05:10</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep00-jak-se-ucit.md" type="text/html" language="cs"/>
+    </item>
+    <item>
+      <title>Ep. 01 – Proč infrastruktura jako kód</title>
+      <description>Vítejte u první epizody. Petro, začnu otázkou z minula. Co se stane, když stejnou konfiguraci aplikuju dvakrát?</description>
+      <link>https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep01-proc-infrastruktura-jako-kod.md</link>
+      <guid isPermaLink="false">terraform-skoleni-ep01-proc-infrastruktura-jako-kod</guid>
+      <pubDate>Thu, 22 Oct 2026 07:00:00 +0000</pubDate>
+      <enclosure url="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/epizody/ep01-proc-infrastruktura-jako-kod.mp3" length="1919644" type="audio/mpeg"/>
+      <itunes:duration>05:14</itunes:duration>
+      <itunes:episode>2</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep01-proc-infrastruktura-jako-kod.md" type="text/html" language="cs"/>
+    </item>
+    <item>
+      <title>Ep. 02 – HCL a workflow: init, plán, apply</title>
+      <description>Ahoj, druhá epizoda. Petro, odpověď na otázku z minula: Terraform ví, co existuje, ze stavu. A při plánu se ještě zeptá providera, jak to vypadá doopravdy.</description>
+      <link>https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep02-hcl-a-workflow.md</link>
+      <guid isPermaLink="false">terraform-skoleni-ep02-hcl-a-workflow</guid>
+      <pubDate>Thu, 22 Oct 2026 08:00:00 +0000</pubDate>
+      <enclosure url="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/epizody/ep02-hcl-a-workflow.mp3" length="1815397" type="audio/mpeg"/>
+      <itunes:duration>04:57</itunes:duration>
+      <itunes:episode>3</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep02-hcl-a-workflow.md" type="text/html" language="cs"/>
+    </item>
+    <item>
+      <title>Ep. 03 – Proměnné, výstupy a mýtus jménem sensitive</title>
+      <description>Třetí epizoda. Petro, předpověď z minula: změna textu pozdravu bude změna za běhu.</description>
+      <link>https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep03-promenne-a-vystupy.md</link>
+      <guid isPermaLink="false">terraform-skoleni-ep03-promenne-a-vystupy</guid>
+      <pubDate>Thu, 22 Oct 2026 09:00:00 +0000</pubDate>
+      <enclosure url="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/epizody/ep03-promenne-a-vystupy.mp3" length="1664958" type="audio/mpeg"/>
+      <itunes:duration>04:32</itunes:duration>
+      <itunes:episode>4</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep03-promenne-a-vystupy.md" type="text/html" language="cs"/>
+    </item>
+    <item>
+      <title>Ep. 04 – Providery, datové zdroje a graf závislostí</title>
+      <description>Čtvrtá epizoda. Odpověď z minula: kontejner odkazuje na identifikátor image, a z té reference Terraform pozná, že image musí být první.</description>
+      <link>https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep04-providery-a-zavislosti.md</link>
+      <guid isPermaLink="false">terraform-skoleni-ep04-providery-a-zavislosti</guid>
+      <pubDate>Thu, 22 Oct 2026 10:00:00 +0000</pubDate>
+      <enclosure url="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/epizody/ep04-providery-a-zavislosti.mp3" length="1670451" type="audio/mpeg"/>
+      <itunes:duration>04:33</itunes:duration>
+      <itunes:episode>5</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep04-providery-a-zavislosti.md" type="text/html" language="cs"/>
+    </item>
+    <item>
+      <title>Ep. 05 – State: paměť Terraformu</title>
+      <description>Pátá epizoda, a podle Petry nejdůležitější. Odpověď z minula: identifikátor kontejneru je ve stavu. A kdyby se ztratil, Terraform by nevěděl, že kontejner existuje, a zkusil by vytvořit nový.</description>
+      <link>https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep05-state.md</link>
+      <guid isPermaLink="false">terraform-skoleni-ep05-state</guid>
+      <pubDate>Thu, 22 Oct 2026 11:00:00 +0000</pubDate>
+      <enclosure url="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/epizody/ep05-state.mp3" length="1819748" type="audio/mpeg"/>
+      <itunes:duration>04:58</itunes:duration>
+      <itunes:episode>6</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep05-state.md" type="text/html" language="cs"/>
+    </item>
+    <item>
+      <title>Ep. 06 – count, for_each a past jménem index</title>
+      <description>Šestá epizoda. Moje předpověď z minula: když z web, api a docs odeberu api, zmizí jeden kontejner.</description>
+      <link>https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep06-count-for-each.md</link>
+      <guid isPermaLink="false">terraform-skoleni-ep06-count-for-each</guid>
+      <pubDate>Thu, 22 Oct 2026 12:00:00 +0000</pubDate>
+      <enclosure url="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/epizody/ep06-count-for-each.mp3" length="1734056" type="audio/mpeg"/>
+      <itunes:duration>04:43</itunes:duration>
+      <itunes:episode>7</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep06-count-for-each.md" type="text/html" language="cs"/>
+    </item>
+    <item>
+      <title>Ep. 07 – Moduly: stavebnice, ne kopírka</title>
+      <description>Sedmá epizoda. Odpověď z minula je jasná: modul.</description>
+      <link>https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep07-moduly.md</link>
+      <guid isPermaLink="false">terraform-skoleni-ep07-moduly</guid>
+      <pubDate>Thu, 22 Oct 2026 13:00:00 +0000</pubDate>
+      <enclosure url="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/epizody/ep07-moduly.mp3" length="1579489" type="audio/mpeg"/>
+      <itunes:duration>04:18</itunes:duration>
+      <itunes:episode>8</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep07-moduly.md" type="text/html" language="cs"/>
+    </item>
+    <item>
+      <title>Ep. 08 – Testování infrastruktury a cvičný požár</title>
+      <description>Osmá epizoda, testování. Odpověď z minula: modul ověřím testy. Ale jak poznat, že testy za něco stojí, nevím.</description>
+      <link>https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep08-testovani.md</link>
+      <guid isPermaLink="false">terraform-skoleni-ep08-testovani</guid>
+      <pubDate>Thu, 22 Oct 2026 14:00:00 +0000</pubDate>
+      <enclosure url="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/epizody/ep08-testovani.mp3" length="1682958" type="audio/mpeg"/>
+      <itunes:duration>04:35</itunes:duration>
+      <itunes:episode>9</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep08-testovani.md" type="text/html" language="cs"/>
+    </item>
+    <item>
+      <title>Ep. 09 – Tým, prostředí a pipeline</title>
+      <description>Devátá epizoda. Odpověď z minula: apply z notebooku je riskantní, protože ho nikdo nezkontroluje a nikde nezůstane záznam.</description>
+      <link>https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep09-tym-a-ci-cd.md</link>
+      <guid isPermaLink="false">terraform-skoleni-ep09-tym-a-ci-cd</guid>
+      <pubDate>Thu, 22 Oct 2026 15:00:00 +0000</pubDate>
+      <enclosure url="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/epizody/ep09-tym-a-ci-cd.mp3" length="1667889" type="audio/mpeg"/>
+      <itunes:duration>04:32</itunes:duration>
+      <itunes:episode>10</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep09-tym-a-ci-cd.md" type="text/html" language="cs"/>
+    </item>
+    <item>
+      <title>Ep. 10 – Závěrečný projekt a cesta dál</title>
+      <description>Poslední epizoda. Petro, nakreslil jsem si platformu z minulé otázky. Dva moduly: backend s replikami a proxy. A pro každé prostředí malý kořenový modul.</description>
+      <link>https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep10-cesta-dal.md</link>
+      <guid isPermaLink="false">terraform-skoleni-ep10-cesta-dal</guid>
+      <pubDate>Thu, 22 Oct 2026 16:00:00 +0000</pubDate>
+      <enclosure url="https://raw.githubusercontent.com/ravisileb/terraform_repo/main/skoleni/podcast/epizody/ep10-cesta-dal.mp3" length="1344862" type="audio/mpeg"/>
+      <itunes:duration>03:38</itunes:duration>
+      <itunes:episode>11</itunes:episode>
+      <itunes:explicit>false</itunes:explicit>
+      <podcast:transcript url="https://github.com/ravisileb/terraform_repo/blob/main/skoleni/podcast/ep10-cesta-dal.md" type="text/html" language="cs"/>
+    </item>
+  </channel>
+</rss>

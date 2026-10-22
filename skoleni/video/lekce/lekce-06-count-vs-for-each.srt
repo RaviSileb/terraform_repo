@@ -1,0 +1,75 @@
+1
+00:00:00,400 --> 00:00:02,090
+Count, nebo for each?
+
+2
+00:00:02,090 --> 00:00:07,158
+Po této lekci budete vědět, kdy co použít a proč na tom záleží.
+
+3
+00:00:08,500 --> 00:00:11,547
+S count jsou instance adresované indexem.
+
+4
+00:00:11,547 --> 00:00:20,244
+Když odeberete api ze středu, docs se posune z indexu dva na jedna a Terraform ji nahradí, přestože jste ji neměnili.
+
+5
+00:00:20,244 --> 00:00:22,251
+S for each je adresou klíč.
+
+6
+00:00:22,251 --> 00:00:24,258
+Odebrání api smaže jen api.
+
+7
+00:00:25,600 --> 00:00:28,766
+For each přijímá mapu nebo množinu řetězců.
+
+8
+00:00:28,766 --> 00:00:31,491
+Each key je klíč, each value hodnota.
+
+9
+00:00:31,491 --> 00:00:40,254
+Klíče musí být známé už při plánu, proto je odvozujte ze vstupů a konstant, ne z atributů, které vzniknou až při apply.
+
+10
+00:00:41,600 --> 00:00:43,334
+Máte count v produkci?
+
+11
+00:00:43,334 --> 00:00:46,330
+Bloky moved přemapují indexy na klíče.
+
+12
+00:00:46,330 --> 00:00:49,404
+Plán pak ukáže jen přesuny a nula změn.
+
+13
+00:00:50,704 --> 00:00:53,035
+Lifecycle mění chování náhrady.
+
+14
+00:00:53,035 --> 00:00:55,140
+Prevent destroy chrání data.
+
+15
+00:00:55,140 --> 00:01:02,057
+Create before destroy postaví novou instanci před zrušením staré, jen nesmí kolidovat jména.
+
+16
+00:01:02,057 --> 00:01:06,268
+Ignore changes používejte střídmě, protože skrývá drift.
+
+17
+00:01:06,268 --> 00:01:08,599
+A podmínky hlídají předpoklady.
+
+18
+00:01:09,904 --> 00:01:12,925
+Otázka: kdy je count lepší než for each?
+
+19
+00:01:12,925 --> 00:01:17,533
+Nápověda: myslete na podmíněné zdroje a na identické repliky.

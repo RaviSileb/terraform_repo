@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="font-variant-ligatures:none" viewBox="0 0 960 540" width="960" height="540" font-family="Inter, 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+  <title>Architektura závěrečného projektu: proxy nginx rozkládá zátěž mezi repliky whoami v síti každého prostředí</title>
+  <defs><marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+  <rect width="960" height="540" rx="18" fill="#F8FAFC"/>
+  <text x="40" y="56" font-size="28" font-weight="700" fill="#0F172A">Závěrečný projekt: mini platforma</text>
+  <text x="40" y="84" font-size="16" fill="#475569">Každé prostředí = vlastní síť, vlastní stav, stejné moduly backend + proxy.</text>
+  <g>
+    <rect x="40" y="110" width="420" height="390" rx="16" fill="#FFFFFF" stroke="#16A34A" stroke-width="2"/>
+    <text x="60" y="140" font-size="18" font-weight="700" fill="#166534">prostredi/dev</text>
+    <text x="440" y="140" text-anchor="end" font-size="13" fill="#64748B" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">síť cap-dev</text>
+    <rect x="70" y="160" width="140" height="44" rx="22" fill="#FEF3C7" stroke="#D97706"/><text x="140" y="187" text-anchor="middle" font-size="14" fill="#78350F" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">localhost:8100</text>
+    <rect x="70" y="240" width="140" height="70" rx="12" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/><text x="140" y="268" text-anchor="middle" font-size="14" font-weight="700" fill="#075985">proxy</text><text x="140" y="290" text-anchor="middle" font-size="12" fill="#0C4A6E">nginx · /zdravi</text>
+    <line x1="140" y1="204" x2="140" y2="236" stroke="#475569" stroke-width="2" marker-end="url(#s)"/>
+    <rect x="260" y="200" width="170" height="54" rx="12" fill="#EDE9FE" stroke="#7B42BC" stroke-width="2"/><text x="345" y="232" text-anchor="middle" font-size="13" fill="#4C1D95" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">backend-0</text>
+    <rect x="260" y="296" width="170" height="54" rx="12" fill="#EDE9FE" stroke="#7B42BC" stroke-width="2"/><text x="345" y="328" text-anchor="middle" font-size="13" fill="#4C1D95" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">backend-1</text>
+    <g stroke="#475569" stroke-width="2"><line x1="210" y1="265" x2="256" y2="232" marker-end="url(#s)"/><line x1="210" y1="285" x2="256" y2="320" marker-end="url(#s)"/></g>
+    <text x="60" y="400" font-size="13" fill="#334155">modul <tspan font-weight="700">backend</tspan>: count = 2 (identické repliky)</text>
+    <text x="60" y="424" font-size="13" fill="#334155">modul <tspan font-weight="700">proxy</tspan>: upstream z výstupu backend.nazvy</text>
+    <text x="60" y="448" font-size="13" fill="#334155">round robin → odpovídají různé Hostname</text>
+  </g>
+  <g>
+    <rect x="500" y="110" width="420" height="390" rx="16" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/>
+    <text x="520" y="140" font-size="18" font-weight="700" fill="#991B1B">prostredi/prod</text>
+    <text x="900" y="140" text-anchor="end" font-size="13" fill="#64748B" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">síť cap-prod</text>
+    <rect x="530" y="160" width="140" height="44" rx="22" fill="#FEF3C7" stroke="#D97706"/><text x="600" y="187" text-anchor="middle" font-size="14" fill="#78350F" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">localhost:8200</text>
+    <rect x="530" y="250" width="140" height="70" rx="12" fill="#E0F2FE" stroke="#0284C7" stroke-width="2"/><text x="600" y="278" text-anchor="middle" font-size="14" font-weight="700" fill="#075985">proxy</text><text x="600" y="300" text-anchor="middle" font-size="12" fill="#0C4A6E">nginx · /zdravi</text>
+    <line x1="600" y1="204" x2="600" y2="246" stroke="#475569" stroke-width="2" marker-end="url(#s)"/>
+    <rect x="720" y="180" width="170" height="54" rx="12" fill="#EDE9FE" stroke="#7B42BC" stroke-width="2"/><text x="805" y="212" text-anchor="middle" font-size="13" fill="#4C1D95" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">backend-0</text>
+    <rect x="720" y="258" width="170" height="54" rx="12" fill="#EDE9FE" stroke="#7B42BC" stroke-width="2"/><text x="805" y="290" text-anchor="middle" font-size="13" fill="#4C1D95" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">backend-1</text>
+    <rect x="720" y="336" width="170" height="54" rx="12" fill="#EDE9FE" stroke="#7B42BC" stroke-width="2"/><text x="805" y="368" text-anchor="middle" font-size="13" fill="#4C1D95" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">backend-2</text>
+    <g stroke="#475569" stroke-width="2"><line x1="670" y1="270" x2="716" y2="210" marker-end="url(#s)"/><line x1="670" y1="285" x2="716" y2="285" marker-end="url(#s)"/><line x1="670" y1="300" x2="716" y2="360" marker-end="url(#s)"/></g>
+    <text x="520" y="440" font-size="13" fill="#334155">stejné moduly, jiné vstupy: 3 repliky, port 8200</text>
+    <text x="520" y="464" font-size="13" fill="#334155">vlastní stav → chyba v dev neohrozí prod</text>
+  </g>
+</svg>

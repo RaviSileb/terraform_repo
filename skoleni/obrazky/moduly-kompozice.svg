@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="font-variant-ligatures:none" viewBox="0 0 960 540" width="960" height="540" font-family="Inter, 'Segoe UI', 'Noto Sans', 'DejaVu Sans', Arial, sans-serif">
+  <title>Modul jako funkce: vstupy, zdroje, výstupy; kořenový modul volá modul pro každé prostředí</title>
+  <defs>
+    <marker id="s" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker>
+  </defs>
+  <rect width="960" height="540" rx="18" fill="#F8FAFC"/>
+  <text x="40" y="56" font-size="28" font-weight="700" fill="#0F172A">Modul = funkce pro infrastrukturu</text>
+  <text x="40" y="84" font-size="16" fill="#475569">Vstupy (variable) → tělo (resource, data) → návratové hodnoty (output). Volající nezná vnitřek.</text>
+
+  <!-- module definition -->
+  <rect x="40" y="120" width="400" height="370" rx="16" fill="#FFFFFF" stroke="#7B42BC" stroke-width="2"/>
+  <text x="60" y="152" font-size="18" font-weight="700" fill="#5B21B6">modul ./moduly/webapp</text>
+  <rect x="60" y="170" width="360" height="86" rx="10" fill="#EDE9FE"/>
+  <text x="76" y="194" font-size="14" font-weight="700" fill="#4C1D95">vstupy (variables.tf)</text>
+  <text x="76" y="220" font-size="13" fill="#4C1D95" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">nazev, port, titulek</text>
+  <text x="76" y="242" font-size="13" fill="#4C1D95" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">barva = "#7B42BC", sit = null</text>
+  <rect x="60" y="270" width="360" height="100" rx="10" fill="#F1F5F9"/>
+  <text x="76" y="294" font-size="14" font-weight="700" fill="#0F172A">zdroje (main.tf)</text>
+  <text x="76" y="320" font-size="13" fill="#334155" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">docker_image.nginx</text>
+  <text x="76" y="342" font-size="13" fill="#334155" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">docker_container.web</text>
+  <rect x="60" y="384" width="360" height="86" rx="10" fill="#DCFCE7"/>
+  <text x="76" y="408" font-size="14" font-weight="700" fill="#14532D">výstupy (outputs.tf)</text>
+  <text x="76" y="434" font-size="13" fill="#14532D" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">url, nazev_kontejneru,</text>
+  <text x="76" y="456" font-size="13" fill="#14532D" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">id_kontejneru</text>
+
+  <!-- root -->
+  <rect x="500" y="120" width="420" height="370" rx="16" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+  <text x="520" y="152" font-size="18" font-weight="700" fill="#0F172A">kořenový modul</text>
+  <text x="520" y="174" font-size="13" fill="#64748B">konfiguruje providery, drží stav</text>
+  <rect x="520" y="190" width="380" height="44" rx="10" fill="#E0F2FE"/>
+  <text x="536" y="218" font-size="14" fill="#075985" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">docker_network.lab06</text>
+  <rect x="520" y="250" width="180" height="120" rx="10" fill="#EDE9FE" stroke="#7B42BC"/>
+  <text x="610" y="280" text-anchor="middle" font-size="13" font-weight="700" fill="#4C1D95" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">module.web["dev"]</text>
+  <text x="610" y="306" text-anchor="middle" font-size="12" fill="#4C1D95">port 8061</text>
+  <text x="610" y="326" text-anchor="middle" font-size="12" fill="#4C1D95">titulek „Vývoj“</text>
+  <rect x="720" y="250" width="180" height="120" rx="10" fill="#EDE9FE" stroke="#7B42BC"/>
+  <text x="810" y="280" text-anchor="middle" font-size="13" font-weight="700" fill="#4C1D95" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">module.web["prod"]</text>
+  <text x="810" y="306" text-anchor="middle" font-size="12" fill="#4C1D95">port 8062</text>
+  <text x="810" y="326" text-anchor="middle" font-size="12" fill="#4C1D95">titulek „Produkce“</text>
+  <g stroke="#475569" stroke-width="2"><line x1="610" y1="236" x2="610" y2="248" marker-end="url(#s)"/><line x1="810" y1="236" x2="810" y2="248" marker-end="url(#s)"/></g>
+  <rect x="520" y="390" width="380" height="80" rx="10" fill="#DCFCE7"/>
+  <text x="536" y="418" font-size="13" fill="#14532D" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">output "url" = { for k, m in module.web :</text>
+  <text xml:space="preserve" style="white-space:pre" x="536" y="440" font-size="13" fill="#14532D" font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace">                 k =&gt; m.url }</text>
+  <g stroke="#7B42BC" stroke-width="2" stroke-dasharray="6 5" fill="none">
+    <path d="M440,300 C470,300 480,310 516,310" marker-end="url(#s)"/>
+  </g>
+  <text x="446" y="290" font-size="12" fill="#5B21B6">for_each</text>
+</svg>

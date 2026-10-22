@@ -1,5 +1,7 @@
 ## Terraform Code Repo for Major Cloud Providers and Custom Provider Guide
 
+> 🇨🇿 **Nové: [Školení Terraform – od nuly k produkci](skoleni/README.md)** – kurz v češtině s 8 laby (Docker, bez cloudového účtu), závěrečným projektem, break-fix úlohami, podcastem, video lekcemi, kartičkami pro Anki a autograderem v GitHub Actions. [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/ravisileb/terraform_repo)
+
 - [x] [![AWS Workflow](https://github.com/chefgs/terraform_repo/actions/workflows/tf_code_validation_aws.yml/badge.svg)](https://github.com/chefgs/terraform_repo/actions/workflows/tf_code_validation_aws.yml)
 - [ ] Azure Workflow - ToDo
 - [ ] GCP Workflow - ToDo

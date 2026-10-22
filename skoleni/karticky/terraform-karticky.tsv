@@ -1,0 +1,92 @@
+Co je infrastruktura jako kód (IaC)?	Popis infrastruktury v textových souborech, které se verzují, revidují a automaticky aplikují.	m01 terraform
+Co znamená idempotence u terraform apply?	Opakované spuštění bez změny vstupů nevede k další změně – plán je prázdný.	m01 terraform
+Imperativní vs. deklarativní přístup?	Imperativní popisuje kroky (JAK), deklarativní cílový stav (CO); nástroj spočítá rozdíl.	m01 terraform
+Co dělá Terraform Core?	Načte HCL, sestaví graf závislostí, porovná kód se stavem, vytvoří plán, řídí apply a zapisuje stav.	m01 terraform
+Co dělá provider?	Plugin, který zná API konkrétní platformy a vytváří/čte/mění/maže její objekty.	m01 terraform
+Jakou licenci má Terraform od verze 1.6?	Business Source License 1.1 (dříve MPL 2.0).	m01 terraform
+Co je OpenTofu?	Komunitní fork Terraformu pod Linux Foundation s licencí MPL 2.0.	m01 terraform
+Uveďte 3 situace, kdy Terraform nepoužít.	Konfigurace uvnitř OS, krátkodobé objekty (pody, joby), data uvnitř aplikace/databáze.	m01 terraform
+Pořadí kroků základního workflow?	write → init → plan → apply (→ destroy).	m02 terraform
+Co dělá terraform init?	Stáhne providery a moduly, vytvoří/ověří .terraform.lock.hcl, inicializuje backend.	m02 terraform
+Co kontroluje terraform validate?	Syntaxi, typy a reference vůči schématu providerů – bez volání API.	m02 terraform
+Co znamená v plánu -/+ ?	Replace: zdroj se zničí a vytvoří znovu (hledejte '# forces replacement').	m02 terraform
+Co znamená v plánu ~ ?	Update in-place – změna za běhu bez náhrady.	m02 terraform
+Co znamená (known after apply)?	Hodnotu zná až provider po vytvoření zdroje (ID, IP…).	m02 terraform
+Patří .terraform.lock.hcl do Gitu?	Ano – zamyká verze a kontrolní součty providerů.	m02 terraform
+Patří terraform.tfstate do Gitu?	Ne – obsahuje tajemství a potřebuje zamykání; patří do vzdáleného backendu.	m02 terraform
+Co znamená version = "~> 3.6"?	>= 3.6.0 a < 4.0.0.	m02 terraform
+Co znamená version = "~> 3.6.1"?	>= 3.6.1 a < 3.7.0.	m02 terraform
+Záleží Terraformu na pořadí bloků v souborech?	Ne, pořadí určuje graf závislostí z referencí.	m02 terraform
+Jak uložit plán a aplikovat přesně ho?	terraform plan -out=tfplan; terraform apply tfplan	m02 terraform
+Proč nepoužívat timestamp() v argumentu zdroje?	Mění se při každém plánu → plán nikdy nebude prázdný. Použijte time_static.	m02 terraform
+Pořadí přednosti hodnot proměnných (od nejnižší)?	default < TF_VAR_x < terraform.tfvars < *.auto.tfvars < -var / -var-file.	m03 terraform
+Rozdíl variable / locals / output?	Vstup modulu / pojmenovaný mezivýpočet / výstup modulu.	m03 terraform
+Od které verze může validace proměnné odkazovat na jinou proměnnou?	Terraform 1.9.	m03 terraform
+Co dělá sensitive = true?	Skryje hodnotu ve výpisu CLI; ve stavu a plánu zůstává v čitelné podobě.	m03 terraform
+Co dělá ephemeral = true u proměnné (1.10+)?	Hodnota existuje jen během běhu a neukládá se do stavu ani plánu.	m03 terraform
+Co jsou write-only argumenty (1.11+)?	Argumenty (např. password_wo), které provider přijme, ale neuloží do stavu.	m03 terraform
+Výraz: seznam → mapa názvů	{ for s in var.seznam : s => "${s}.local" }	m03 terraform
+Co dělá merge(a, b) při kolizi klíčů?	Vyhrává poslední mapa (b).	m03 terraform
+Co dělá ~ v direktivě šablony %{ for ~}?	Odstraní přilehlé bílé znaky (nový řádek).	m03 terraform
+K čemu je terraform console?	Interaktivní vyhodnocování výrazů proti aktuální konfiguraci a stavu.	m03 terraform
+Proč neprojde var.x ? [1] : "a"?	Obě větve podmíněného výrazu musí mít sjednotitelný typ.	m03 terraform
+Jak napsat volitelný atribut objektu s výchozí hodnotou?	object({ port = number, tls = optional(bool, false) })	m03 terraform
+resource vs. data?	resource spravuje životní cyklus objektu, data jen čte existující objekt.	m04 terraform
+Kdy použít depends_on?	Jen pro závislost, která není vidět v referencích (skrytá závislost).	m04 terraform
+Jak vzniká implicitní závislost?	Referencí na atribut jiného zdroje (např. docker_image.nginx.image_id).	m04 terraform
+Jaká je výchozí paralelita Terraformu?	10 souběžných operací (-parallelism=10).	m04 terraform
+V jakém pořadí se zdroje mažou?	V opačném pořadí, než se vytvářejí.	m04 terraform
+K čemu je alias v bloku provider?	Více konfigurací stejného providera (region, účet); zdroj vybírá provider = aws.usa.	m04 terraform
+Kde mají být přihlašovací údaje k providerovi?	Mimo kód: proměnné prostředí, profily, OIDC v CI.	m04 terraform
+Co je ForceNew?	Argument, jehož změna vynutí náhradu zdroje (-/+).	m04 terraform
+Jak vynutit náhradu jednoho zdroje?	terraform apply -replace=ADRESA	m04 terraform
+Co obsahuje state?	Mapování adres v kódu na reálné objekty, jejich atributy a závislosti.	m05 terraform
+Proč je state citlivý?	Obsahuje hodnoty argumentů včetně tajemství v čitelné podobě.	m05 terraform
+Co je drift?	Rozdíl mezi stavem a realitou způsobený změnou mimo Terraform.	m05 terraform
+Co dělá terraform apply -refresh-only?	Přijme aktuální realitu do stavu, aniž by měnil infrastrukturu.	m05 terraform
+Nativní zamykání stavu v S3?	backend s3 s use_lockfile = true (zavedeno 1.10, stabilní 1.11), bez DynamoDB.	m05 terraform
+Blok pro převzetí existujícího objektu?	import { to = ADRESA  id = "ID" } (od 1.5).	m05 terraform
+Jak vygenerovat konfiguraci pro import?	terraform plan -generate-config-out=generated.tf	m05 terraform
+Blok pro přejmenování zdroje bez zničení?	moved { from = staré  to = nové } (od 1.1).	m05 terraform
+Blok pro ukončení správy bez zničení?	removed { from = X  lifecycle { destroy = false } } (od 1.7).	m05 terraform
+Proč moved místo terraform state mv?	Je v kódu: review, historie, platí ve všech prostředích i pro uživatele modulu.	m05 terraform
+Co se stane, když smažete blok resource z kódu?	Při apply se zdroj zničí (je ve stavu, ale ne v kódu).	m05 terraform
+Cílový plán po importu?	N to import, 0 to add, 0 to change, 0 to destroy.	m05 terraform
+Proč menší stavy?	Menší dopad chyby, rychlejší plány, užší oprávnění, méně blokování zámkem.	m05 terraform
+Kdy count?	Podmíněný zdroj (0/1) a identické zaměnitelné kusy.	m06 terraform
+Kdy for_each?	Kolekce s identitou (jména, prostředí, služby).	m06 terraform
+Proč count nad seznamem škodí při odebrání prvku?	Posunou se indexy → náhrada nesouvisejících instancí.	m06 terraform
+Jaké typy přijímá for_each?	Mapu nebo množinu řetězců (set(string)).	m06 terraform
+Proč nejde for_each nad atributy známými až po apply?	Klíče určují adresy zdrojů a musí být známé při plánu.	m06 terraform
+Co dělá create_before_destroy?	Při náhradě nejdřív vytvoří novou instanci, pak zničí starou.	m06 terraform
+Co dělá prevent_destroy?	Plán, který by zdroj zničil, skončí chybou.	m06 terraform
+Co dělá ignore_changes?	Ignoruje rozdíly v uvedených atributech (mění je někdo jiný).	m06 terraform
+Co dělá replace_triggered_by?	Nahradí zdroj, když se změní odkazovaný zdroj/atribut.	m06 terraform
+K čemu je blok dynamic?	Generuje opakované vnořené bloky z kolekce.	m06 terraform
+Co dělá merge([...]...) s trojtečkou?	Rozbalí seznam map do argumentů a sloučí je do jedné mapy.	m06 terraform
+Splat výraz pro názvy všech instancí s count?	docker_container.x[*].name	m06 terraform
+Co je modul?	Jakýkoli adresář s *.tf soubory; kořenový modul volá podřízené blokem module.	m07 terraform
+Co tvoří rozhraní modulu?	Vstupní proměnné a výstupy.	m07 terraform
+Proč modul nemá konfigurovat providery?	Pak nejde použít s for_each/count/depends_on a nejde bezpečně odstranit.	m07 terraform
+Jak předat modulu jinou konfiguraci providera?	providers = { aws = aws.usa }	m07 terraform
+Jak pinovat modul z Gitu?	source = "git::https://…//cesta?ref=v1.2.0" (tag, ne větev).	m07 terraform
+Jak pinovat modul z registry?	version = "~> 5.0" v bloku module.	m07 terraform
+Adresa zdroje v instanci modulu s for_each?	module.web["prod"].docker_container.web	m07 terraform
+Co je leaky abstraction u modulu?	Modul jen přeposílá desítky argumentů zdroje a nepřidává hodnotu.	m07 terraform
+Vrstvy testovací pyramidy pro Terraform (zdola)?	fmt/validate → lint/sken → jednotkové (plan, mock) → integrační (apply) → check bloky.	m08 terraform
+Kde jsou testy terraform test?	Soubory *.tftest.hcl v adresáři tests/ (lze změnit -test-directory).	m08 terraform
+Jak napsat negativní test?	run { command = plan  variables {…}  expect_failures = [var.x] }	m08 terraform
+Výchozí command v run bloku?	apply.	m08 terraform
+Co dělá mock_provider?	Nahradí providera bez volání API; computed hodnoty vygeneruje.	m08 terraform
+K čemu je override_resource?	V testu nastaví konkrétní hodnoty atributů zdroje.	m08 terraform
+check blok vs. postcondition?	check jen varuje a nezastaví apply; postcondition při nesplnění apply zastaví.	m08 terraform
+Co je mutační testování?	Záměrné vnášení chyb do kódu; dobré testy je zachytí (mutant zabit).	m08 terraform
+Nástroje pro bezpečnostní sken IaC?	Trivy (dříve tfsec), Checkov, OPA/Conftest, Sentinel.	m08 terraform
+Doporučené oddělení dlouhodobých prostředí?	Oddělené adresáře/stavy (dev, prod) volající stejné moduly.	m09 terraform
+Kdy CLI workspaces?	Pro dočasná prostředí se stejnou konfigurací (např. preview pro PR).	m09 terraform
+Exit kódy plan -detailed-exitcode?	0 beze změn, 1 chyba, 2 změny (drift).	m09 terraform
+Proč OIDC v CI?	Krátkodobé tokeny bez statických klíčů, důvěra omezená na repo/větev/environment.	m09 terraform
+Proč concurrency s cancel-in-progress: false?	Žádné souběžné běhy nad stavem a běžící apply se nepřeruší.	m09 terraform
+Co je TACOS?	Platformy pro běh Terraformu: HCP Terraform, Atlantis, Spacelift, env0, Scalr…	m09 terraform
+Co hledat jako první v plánu při review?	Řádek Plan: a všechna -/+ a - .	m09 terraform
+Proč apply uloženého plánu v CI?	Provede se přesně to, co prošlo review; zastaralý plán Terraform odmítne.	m09 terraform
